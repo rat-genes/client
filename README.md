@@ -7,7 +7,7 @@ Ryan Manro, Stephanie Smith, Tasha Zuniga, Victor Bofill
 This app is to help organize and plan a trip in the PNW National Parks. It would help you remember needed equipment and information and store it all in one place. 
 
 ## Domain Model
-![img1](https://raw.githubusercontent.com/victorbofill/team-computer/master/meta/domainmodel.jpg)
+![img1](https://github.com/rat-genes/meta/blob/master/domainmodel.jpg)
 
 ## Wireframe
-![img2](https://raw.githubusercontent.com/victorbofill/team-computer/master/meta/wireframe.jpg)
+![img2](https://github.com/rat-genes/meta/blob/master/wireframe.jpg)
