@@ -19,6 +19,7 @@
     });
 
     page('/', () => Park.populateParks().then(parkView.initParkView));
+    page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
     page('/profile/plan', () => module.planView.initPlanView());
     //page('/auth/signup', function());
