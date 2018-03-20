@@ -10,6 +10,7 @@
         $('.view').hide();
         $('.view').removeClass('dimmed');
         $('header').removeClass('dimmed');
+        module.loginView.handleLoginView();
     };
 
     page('*', (ctx, next) => {
@@ -20,7 +21,6 @@
     page('/', () => Park.populateParks().then(parkView.initParkView));
     page('/profile', () => module.profileView.initProfileView());
     page('/profile/plan', () => module.planView.initPlanView());
-    page('/auth/login', () => module.loginView.initLoginView());
     //page('/auth/signup', function());
 
     page('*', () => page.redirect('/'));

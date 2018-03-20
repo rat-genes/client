@@ -20,25 +20,27 @@
 }
 
 #login-view {
+    background-color: white;
     border: 1px solid black;
-    margin: 2em auto;
+    left: 35%;
+    position: absolute;
     width: fit-content;
+    z-index: 1;
 }
 
 #close-login {
     background-color: grey;
     border: 1px solid black;
+    box-sizing: unset;
     box-shadow: 1px 1px;
     color: black;
     float: right;
     width: fit-content;
 }
 
-#close-login a {
+#close-login button {
+    background-color: grey;
+    border: 1px solid black;
     color: black;
     text-decoration: none;
-}
-
-#close-login visted {
-    color: black;
 }

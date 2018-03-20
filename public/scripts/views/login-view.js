@@ -8,13 +8,22 @@
 
     let method = '';
 
+    loginView.removeLoginView = () => {
+        $('#login-view').hide();
+        $('header').removeClass('dimmed');
+        $('.view').removeClass('dimmed');
+    }
+
     loginView.initLoginView = () => {
         $('header').addClass('dimmed');
         $('.view').addClass('dimmed');
         $('#login-view').removeClass('dimmed').show();
+        $('#close-login button').off().on('click', () => loginView.removeLoginView());
     };
-    position: absolute;
-    position: absolute;
+
+    loginView.handleLoginView = () => {
+        $('#handle-login').off().on('click', () => loginView.initLoginView());
+    };
 
     loginView.initSignup = () => {
         if(User.current) {
