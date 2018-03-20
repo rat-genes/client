@@ -14,14 +14,14 @@
         next();
     });
 
-    page('/parks', () => Park.populatePark().then(parkView.initParkView));
+    page('/', () => Park.populateParks().then(parkView.initParkView));
     //page('/auth/signup', function());
     //page('/auth/login', function);
     //page('/parks/detail', function);
     //page('/profile', function);
     //page('/profile/trip-detail', function);
 
-    page('*', () => page.redirect('/parks'));
+    page('*', () => page.redirect('/'));
 
     page();
 
