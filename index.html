@@ -5,22 +5,28 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/styles/base.css">
+    <link rel="stylesheet" href="public/styles/theme.css">
+    <link rel="stylesheet" href="public/styles/layout.css">
     <link rel="stylesheet" href="public/styles/modules.css">
+    <link rel="stylesheet" href="public/styles/state.css">
   </head>
 
   <body>
     <header>
-      <h1>Hiking With Rats</h1>
+      <h2><a href="/profile">My Trips</a></h2>
+      <h2><a href="/auth/login">Login</a></h2>
+      <h1><a href="/">Camping Fellows</a></h1>
     </header>
 
     <main>
-      <section id="admin-view">
-        <h1 class="view-title">Signup</h1>
+      <section id="login-view" class="view">
+        <div id="close-login"><a href="/">X</a></div>
+        <h1>Signup</h1>
         <div>
           <a id="auth-type" href="/auth/login">Login</a>
         </div>
         <h1>login</h1>
-        <form id="admin-form">
+        <form id="login-form">
           <div>Name: <input id="name" name="passphrase" placeholder="name"></div>
           <div>Password: <input id="password" name="passphrase" placeholder="password"></div>
           <div><button type="submit">Submit</button></div>
@@ -28,24 +34,23 @@
         <pre id="auth-error"></pre>
         <p id="logged-in">You are Logged In!</p>
       </section>
-      
-      <section id="park-section" class="view">
+
+      <section id="park-view" class="view">
         <h1>parks</h1>
       </section>
-      <section id="park-detail" class="view">
-        <h1>detail</h1>
+
+      <section id="profile-view" class="view">
+        <div id="user-plans">
+          <h2><a href="/profile/plan">Trip 1</a></h2>
+          <h2><a href="/profile/plan">Trip 2</a></h2>
+          <h2><a href="/profile/plan">Trip 3</a></h2>
+        </div>
       </section>
-      <section id="profile" class="view">
-        <h1>profile</h1>
-      </section>
-      <section id="my-trip" class="view">
+
+      <section id="plan-view" class="view">
         <h1>my trip</h1>
       </section>
     </main>
-
-    <footer>
-      <p>feet things</p>
-    </footer>
     
     <script id="park-template" type="text/x-handlebars-template">
       <section class="park">
@@ -71,7 +76,13 @@
 
       window.module = {};
     </script>
+
     <!-- local -->
+    <script src="public/scripts/views/login-view.js"></script>
+    <script src="public/scripts/models/User.js"></script>
+    <script src="public/scripts/views/profile-view.js"></script>
+    <script src="public/scripts/models/Plan.js"></script>
+    <script src="public/scripts/views/plan-view.js"></script>
     <script src="public/scripts/models/Park.js"></script>
     <script src="public/scripts/views/park-view.js"></script>
     <script src="public/scripts/app.js"></script>

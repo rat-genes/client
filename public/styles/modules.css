@@ -1,3 +1,44 @@
-#park-section img {
+#park-view img {
     max-width: 15%;
+}
+
+#user-plans h2 {
+    background-color: green;
+    border: 1px solid black;
+    margin: .5em;
+    padding: 0 .5em;
+    width: fit-content;
+}
+
+#user-plans h2 a {
+    color: black;
+    text-decoration: none;
+}
+
+#user-plans h2 a:visited {
+    color: black;
+}
+
+#login-view {
+    border: 1px solid black;
+    margin: 2em auto;
+    width: fit-content;
+}
+
+#close-login {
+    background-color: grey;
+    border: 1px solid black;
+    box-shadow: 1px 1px;
+    color: black;
+    float: right;
+    width: fit-content;
+}
+
+#close-login a {
+    color: black;
+    text-decoration: none;
+}
+
+#close-login visted {
+    color: black;
 }

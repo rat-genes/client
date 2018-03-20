@@ -8,18 +8,26 @@
 
     let method = '';
 
+    loginView.initLoginView = () => {
+        $('header').addClass('dimmed');
+        $('.view').addClass('dimmed');
+        $('#login-view').removeClass('dimmed').show();
+    };
+    position: absolute;
+    position: absolute;
+
     loginView.initSignup = () => {
         if(User.current) {
-            $('#admin-form').hide();
+            $('#login-form').hide();
             $('#logged-in').show();
         }
         else {
             method = 'signup';
             $('#auth-type').attr('href', '/auth/login').text('Already have an account? Sign In');
-            $('#admin-form').off('submit').on('submit', handleSubmit);
+            $('#login-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
-        $('$admin-view').show();
+        $('$login-view').show();
     };
 
     const handleSubmit = event => {
@@ -31,7 +39,7 @@
 
         User[method(credentials)]
             .then(() => {
-                $('$admin-form')[0].reset();
+                $('#login-form')[0].reset();
                 page('/');
             })
             .catch(err => {
