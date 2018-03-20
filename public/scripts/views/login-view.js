@@ -44,6 +44,7 @@
         };
         User[method](credentials)
             .then(() => {
+                console.log('STUFF', credentials);
                 $('$admin-form')[0].reset();
                 page('/');
             })

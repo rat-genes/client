@@ -21,6 +21,15 @@
             });
     };
 
+    User.signin = credentials => {
+        return $.post(`${API_URL}/auth/login`, credentials)
+            .then(response => {
+                User.current = true;
+                window.localStorage.token = response.token;
+                setTokenHeader(response.token);
+            });
+    };
+
     User.tryToken = () => {
         const token = window.localStorage.token;
         if(!token) return;
