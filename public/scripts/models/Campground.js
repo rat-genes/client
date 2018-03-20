@@ -2,19 +2,19 @@
 
 
 (function(module) {
- 
-    function Camp(data) {
+
+    function Campground(data) {
         Object.keys(data).forEach(key => this[key] = data[key]);
     }
 
-    Camp.all = [];
+    Campground.all = [];
 
-    Camp.populateCampFilter = function() {
+    Campground.populateCampFilter = function() {
         return $.getJSON(`${API_URL}/campgrounds`)
             .then(data => {
-                Camp.all = data.campgrounds.map(each => new Camp(each));
+                Campground.all = data.campgrounds.map(each => new Campground(each));
             });
         };
 
-    module.Camp = Camp;
+    module.Campground = Campground;
 })(window.module);

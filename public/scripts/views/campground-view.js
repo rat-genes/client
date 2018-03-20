@@ -2,16 +2,16 @@
 
 (function(module) {
     const Plan = module.Plan;
-    const Camp = module.Camp;
+    const Campground = module.Campground;
 
     const template = Handlebars.compile($('#camp-template').html());
 
     const planView = {};
 
     planView.initPlanView = () => {
-        $('#plan-view').show();
-        Camp.all.forEach(data => {
-            $('#plan-view').append(template(data));
+        $('#campground-view').show();
+        Campground.all.forEach(data => {
+            $('#campground-view').append(template(data));
         })
     };
 
