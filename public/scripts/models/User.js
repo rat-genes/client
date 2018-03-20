@@ -43,6 +43,6 @@
         User.current = false;
     };
 
-    module.User = User; 
+    module.User = User;
 
 })(window.module);

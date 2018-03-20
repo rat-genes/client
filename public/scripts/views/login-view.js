@@ -19,7 +19,7 @@
             $('#admin-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
-        $('$admin-view').show();
+        // $('$admin-view').show();
     };
 
     loginView.initSignin = () => {
@@ -33,7 +33,7 @@
             $('#admin-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
-        $('$admin-view').show();
+        // $('$admin-view').show();
     };
 
     const handleSubmit = event => {
