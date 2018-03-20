@@ -8,9 +8,9 @@
     const campView = {};
 
     campView.initCampView = () => {
-        $('#camp-detail').show();
+        $('#plan-view').show();
         Park.all.forEach(data => {
-            $('#camp-detail').append(template(data));
+            $('#plan-view').append(template(data));
         });
     };
 

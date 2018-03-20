@@ -12,9 +12,9 @@
     Camp.populateCampFilter = function() {
         return $.getJSON(`${API_URL}/campgrounds`)
             .then(data => {
-                Camp.all = data.camp.map(each => new Camp(each));
+                Camp.all = data.campgrounds.map(each => new Camp(each));
             });
-    };
+        };
 
     module.Camp = Camp;
 })(window.module);
