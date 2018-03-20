@@ -4,12 +4,15 @@
     const Park = module.Park;
     const Camp = module.Camp;
     const parkView = module.parkView;
-    const campView = module.campView;
+    const planView = module.planView;
+    const loginView = module.loginView;
 
     const resetView = () => {
         $('.view').hide();
+        $('.view').removeClass('dimmed');
+        $('header').removeClass('dimmed');
+        module.loginView.handleLoginView();
     };
-
 
     page('*', (ctx, next) => {
         resetView();
@@ -17,14 +20,15 @@
     });
 
     page('/', () => Park.populateParks().then(parkView.initParkView));
+    page('/parks', () => parkView.initParkView());
+    page('/profile', () => module.profileView.initProfileView());
+    page('/profile/plan', () => module.planView.initPlanView());
     //page('/auth/signup', function());
-    //page('/auth/login', function);
-    page('/parks/detail', () => Camp.populateCampFilter().then(campView.initCampView));
-    //page('/profile/trip-detail', function);
 
     page('*', () => page.redirect('/'));
 
     page();
 
+    page({ hashbang:true });
 
 })(window.module);
