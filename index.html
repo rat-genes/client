@@ -5,26 +5,22 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/styles/base.css">
+    <link rel="stylesheet" href="public/styles/modules.css">
   </head>
 
   <body>
     <header>
       <h1>Hiking With Rats</h1>
-  
-      <p>
-        Hello, rats!
-      </p>
-    </header>
+      </header>
+
     <main>
       <section id="park-section">
-
       </section>
     </main>
+
     <footer>
       <p>feet things</p>
     </footer>
-
-
     
     <script id="park-template" type="text/x-handlebars-template">
       <section class="park">
@@ -37,7 +33,7 @@
     </script>
     <!-- third party -->
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.amd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
       const API_URL = window.location.protocal === 'https:'
@@ -48,6 +44,7 @@
     </script>
     <!-- local -->
     <script src="public/scripts/models/Park.js"></script>
+    <script src="public/scripts/views/park-view.js"></script>
     <script src="public/scripts/app.js"></script>
   </body>
 </html>
