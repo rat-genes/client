@@ -1,7 +1,11 @@
 header {
-    background-color: lightgrey;
+    background-color: yellowgreen;
     border: 1px solid black;
-    box-shadow: 2px 2px 2px;
+    height: 5em;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 header h1 {
@@ -40,4 +44,8 @@ header h1 a {
 
 header h1 a:visited {
     color: black;
+}
+
+main {
+    margin-top: 6em;
 }

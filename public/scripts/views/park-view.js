@@ -9,8 +9,9 @@
 
     parkView.initParkView = () => {
         $('#park-view').show();
+        $('#park-display').empty();
         Park.all.forEach(data => {
-            $('#park-view').append(template(data));
+            $('#park-display').append(template(data));
         });
     };
 
