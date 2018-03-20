@@ -17,7 +17,7 @@
 
     page('/', () => Park.populateParks().then(parkView.initParkView));
     page('/auth/signup', loginView.initSignup);
-    //page('/auth/login', function);
+    page('/auth/login', loginView.initSignin);
     //page('/parks/detail', function);
     //page('/profile', function);
     //page('/profile/trip-detail', function);

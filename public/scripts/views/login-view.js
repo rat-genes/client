@@ -22,6 +22,20 @@
         $('$admin-view').show();
     };
 
+    loginView.initSignin = () => {
+        if(User.current) {
+            $('#admin-form').hide();
+            $('#logged-in').show();
+        }
+        else {
+            method = 'signin';
+            $('#auth-type').attr('href', '/auth/signup').text('Need to create an account? Sign Up');
+            $('#admin-form').off('submit').on('submit', handleSubmit);
+            $('#logged-in').hide();
+        }
+        $('$admin-view').show();
+    };
+
     const handleSubmit = event => {
         event.preventDefault();
         const credentials = {
