@@ -14,9 +14,21 @@
     </header>
 
     <main>
-      <section id="login">
+      <section id="admin-view">
+        <h1 class="view-title">Signup</h1>
+        <div>
+          <a id="auth-type" href="/auth/login">Login</a>
+        </div>
         <h1>login</h1>
+        <form id="admin-form">
+          <div>Email: <input id="email" name="passphrase" placeholder="email"></div>
+          <div>Password: <input id="password" name="passphrase" placeholder="password"></div>
+          <div><button type="submit">Submit</button></div>
+        </form>
+        <pre id="auth-error"></pre>
+        <p id="logged-in">You are Logged In!</p>
       </section>
+      
       <section id="park-section" class="view">
         <h1>parks</h1>
       </section>
