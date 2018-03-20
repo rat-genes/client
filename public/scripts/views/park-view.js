@@ -8,9 +8,10 @@
     const parkView = {};
 
     parkView.initParkView = () => {
+        $('#park-section').show();
         Park.all.forEach(data => {
             $('#park-section').append(template(data));
-        })
+        });
     };
 
     module.parkView = parkView;
