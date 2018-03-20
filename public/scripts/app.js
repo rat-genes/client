@@ -3,6 +3,7 @@
 (function(module) {
     const Park = module.Park;
     const parkView = module.parkView;
+    const loginView = module.loginView;
 
     const resetView = () => {
         $('.view').hide();
@@ -15,7 +16,7 @@
     });
 
     page('/', () => Park.populateParks().then(parkView.initParkView));
-    //page('/auth/signup', function());
+    page('/auth/signup', loginView.initSignup);
     //page('/auth/login', function);
     //page('/parks/detail', function);
     //page('/profile', function);

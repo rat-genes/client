@@ -13,7 +13,7 @@
     };
 
     User.signup = credentials => {
-        return $.post(`${API_URL}/auth/login`, credentials)
+        return $.post(`${API_URL}/auth/signup`, credentials)
             .then(response => {
                 User.current = true;
                 window.localStorage.token = response.token;

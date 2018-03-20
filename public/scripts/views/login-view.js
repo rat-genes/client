@@ -28,8 +28,7 @@
             name: $('#name').val(),
             password: $('#password').val()
         };
-
-        User[method(credentials)]
+        User[method](credentials)
             .then(() => {
                 $('$admin-form')[0].reset();
                 page('/');
