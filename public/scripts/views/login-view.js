@@ -25,7 +25,7 @@
     const handleSubmit = event => {
         event.preventDefault();
         const credentials = {
-            email: $('#email').val(),
+            name: $('#name').val(),
             password: $('#password').val()
         };
 
