@@ -22,7 +22,7 @@
     page('/', () => Park.populateParks().then(parkView.initParkView));
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
-    page('/profile/plan', () => Camp.populateCampFilter().then(planView.initPlanView));
+    page('/profile/plan/:parkCode', ctx => Camp.populateCampFilter(ctx.params.parkCode).then(planView.initPlanView));
     //page('/auth/signup', function());
 
     page('*', () => page.redirect('/'));

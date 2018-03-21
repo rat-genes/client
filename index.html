@@ -50,6 +50,7 @@
 
       <section id="plan-view" class="view">
         <h1>my trip</h1>
+        <div class ="campgrounds"></div>
       </section>
     </main>
     
@@ -57,7 +58,7 @@
       <article class="park">
          <img src="{{image_url}}" alt="park img"/>
           <div class="park-info">
-              <h2>{{name}}</h2>
+              <a href="/profile/plan/{{park_code}}">{{name}}</a>
               <p>{{description}}</p>
           </div>
         </article>

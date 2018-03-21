@@ -1,6 +1,7 @@
 'use strict';
 
 (function(module) {
+    const Park = module.Park;
     const Plan = module.Plan;
     const Camp = module.Camp;
 
@@ -10,11 +11,12 @@
 
     planView.initPlanView = () => {
         $('#plan-view').show();
+        $('.campgrounds').empty();
         Camp.all.forEach(data => {
-            $('#plan-view').append(template(data));
-        })
+            $('.campgrounds').append(template(data));
+        });
     };
-
+    
     module.planView = planView;
     module.template = template;
 })(window.module);
