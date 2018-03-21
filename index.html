@@ -12,14 +12,19 @@
   </head>
 
   <body>
-    <header>
+    <header class="dimmed">
       <h2><a href="/profile">My Trips</a></h2>
       <h2><a id="handle-login">Login</a></h2>
       <h1><a href="/parks">Camping Fellows</a></h1>
     </header>
 
     <main>
-      <section id="login-view" class="view">
+
+      <section id="loading-screen">
+        <h1>Loading...</h1>
+      </section>
+
+      <section id="login-view" class="view dimmed">
         <div id="close-login"><button>X</button></div>
         <h1>Signup</h1>
         <div>
@@ -32,15 +37,14 @@
           <div><button type="submit">Submit</button></div>
         </form>
         <pre id="auth-error"></pre>
-        <p id="logged-in">You are Logged In!</p>
       </section>
 
-      <section id="park-view" class="view">
+      <section id="park-view" class="view dimmed">
         <h1>parks</h1>
         <div id="park-display"></div>
       </section>
 
-      <section id="profile-view" class="view">
+      <section id="profile-view" class="view dimmed">
         <div id="user-plans">
           <h2><a href="/profile/plan">Trip 1</a></h2>
           <h2><a href="/profile/plan">Trip 2</a></h2>
@@ -48,25 +52,35 @@
         </div>
       </section>
 
-      <section id="campground-view" class="view">
+      <section id="campground-view" class="view dimmed">
         <h1>my trip</h1>
-        <div class ="campgrounds"></div>
+        <div>
+          <p>Campgrounds</p>
+          <select id="campground-filters">
+          </select>
+        </div>
+        <div id="campgrounds"></div>
       </section>
     </main>
+
+
+    <script id="option-template" type="text/x-handlebars-template">
+      <option class="campground" value="{{id}}">{{name}}</option>
+    </script>
     
     <!-- TEMPLATES -->
     <script id="park-template" type="text/x-handlebars-template">
       <article class="park">
          <img src="{{image_url}}" alt="park img"/>
           <div class="park-info">
-              <a href="/profile/plan/{{park_code}}">{{name}}</a>
+              <a href="/campgrounds/{{park_code}}">{{name}}</a>
               <p>{{description}}</p>
           </div>
         </article>
     </script>
 
     <script id="camp-template" type="text/x-handlebars-template">
-      <article class="camps">
+      <article class="camps" data-id={{id}}>
           <!--<img src="{{image_url}}" alt="park img"/>-->
           <div class="camp-info">
               <h3>{{name}}</h3>

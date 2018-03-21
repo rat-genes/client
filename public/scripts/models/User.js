@@ -6,34 +6,30 @@
 
     User.current = null;
 
-    const setTokenHeader = token => {
-        $.ajaxSetup({
-            headers: { token: token }
-        });
-    };
-
     User.signup = credentials => {
-        return $.post(`${API_URL}/auth/login`, credentials)
+        return $.post(`${API_URL}/auth/signup`, credentials)
             .then(response => {
                 User.current = true;
-                window.localStorage.token = response.token;
-                setTokenHeader(response.token);
+                window.localStorage.id = response[0];
+                page.redirect('/');
             });
     };
 
-    User.tryToken = () => {
-        const token = window.localStorage.token;
-        if(!token) return;
-
-        setTokenHeader(token);
-        User.current = true;
+    User.signin = credentials => {
+        return $.post(`${API_URL}/auth/login`, credentials)
+            .then(response => {
+                User.current = true;
+                window.localStorage.id = response[0];
+                page.redirect('/');
+            });
     };
 
     User.logout = () => {
-        window.localStorage.removeItem('token');
+        window.localStorage.removeItem('id');
         User.current = false;
+        page.redirect('/');
     };
 
-    module.User = User; 
+    module.User = User;
 
 })(window.module);
