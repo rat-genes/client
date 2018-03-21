@@ -21,6 +21,7 @@
 
     page('*', (ctx, next) => {
         resetView();
+        clearLoading(); // THIS MUST BE REMOVED AFFTER WORK IS DONE ON TODO
         next();
     });
 
@@ -41,7 +42,5 @@
     page({ hashbang:true });
 
     page();
-
-    module.clearLoading = clearLoading;
     
 })(window.module);

@@ -15,7 +15,6 @@
     }
 
     loginView.initLoginView = () => {
-        module.clearLoading();
         $('header').addClass('dimmed');
         $('.view').addClass('dimmed');
         $('#login-view').removeClass('dimmed').show();

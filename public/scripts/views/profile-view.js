@@ -6,7 +6,6 @@
     const profileView = {};
 
     profileView.initProfileView = () => {
-        module.clearLoading();
         $('#profile-view').show();
     };
 

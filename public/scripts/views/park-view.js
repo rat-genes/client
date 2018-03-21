@@ -9,7 +9,6 @@
     const parkView = {};
 
     parkView.initParkView = () => {
-        module.clearLoading();
         $('#park-view').show();
         $('#park-display').empty();
         Park.all.forEach(data => {

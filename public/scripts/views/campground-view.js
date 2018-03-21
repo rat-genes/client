@@ -8,7 +8,6 @@
     const campgroundView = {};
 
     campgroundView.initCampgroundView = () => {
-        module.clearLoading();
         $('#campground-view').show();
         $('.campgrounds').empty();
         Campground.all.forEach(data => {
