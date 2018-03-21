@@ -13,7 +13,7 @@
 
   <body>
     <header class="dimmed">
-      <h2><a href="/profile">My Trips</a></h2>
+      <h2 id="mytrips"><a href="/profile">My Trips</a></h2>
       <h2><a id="handle-login">Login</a></h2>
       <h1><a href="/parks">Camping Fellows</a></h1>
     </header>
@@ -26,14 +26,18 @@
 
       <section id="login-view" class="view dimmed">
         <div id="close-login"><button>X</button></div>
-        <h1>Signup</h1>
+        <h1>Login</h1>
         <div>
-          <a id="auth-type" href="/auth/login">Login</a>
+            <form id="login-form">
+                <div>Name: <input id="login-name" name="login-name" placeholder="Name" required></div>
+                <div>Password: <input id="login-password" name="login-password" placeholder="Password" required></div>
+                <div><button type="submit">Login</button></div>
+              </form> 
         </div>
-        <h1>login</h1>
-        <form id="login-form">
-          <div>Name: <input id="name" name="passphrase" placeholder="name"></div>
-          <div>Password: <input id="password" name="passphrase" placeholder="password"></div>
+        <h1>Signup</h1>
+        <form id="signup-form">
+          <div>Name: <input id="signup-name" name="signup-name" placeholder="Name" required></div>
+          <div>Password: <input id="signup-password" name="signup-password" placeholder="Password" required></div>
           <div><button type="submit">Submit</button></div>
         </form>
         <pre id="auth-error"></pre>

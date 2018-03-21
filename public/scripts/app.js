@@ -4,10 +4,8 @@
     const Park = module.Park;
     const Campground = module.Campground;
     const parkView = module.parkView;
-
     const campgroundView = module.campgroundView;
-    const loginView = module.loginView;
-
+    
     const resetView = () => {
         $('.view').hide();
         loginView.handleLoginView();
@@ -32,11 +30,10 @@
     
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
-    // THIS LINE MUST BE REVERTED TO THE BELOW COMMENTED OUT LINE UPON COMPLETION OF TODO
-    page('/profile/plan/', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initCampgroundView));
-    // page('/profile/plan/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initCampgroundView));
+    page('/profile/plan/', ctx => campgroundView.initCampgroundView);
     page('/auth/signup', loginView.initSignup);
     page('/auth/login', loginView.initSignin);
+    page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
 
     page('*', () => page.redirect('/'));
     
