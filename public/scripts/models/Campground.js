@@ -9,7 +9,7 @@
 
     Campground.all = [];
 
-    Camp.populateCampFilter = (parkCode) => {
+    Campground.populateCampFilter = (parkCode) => {
         return $.getJSON(`${API_URL}/campgrounds/${parkCode}`)
             .then(data => {
                 Campground.all = data.campgrounds.map(each => new Campground(each));
