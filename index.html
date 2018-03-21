@@ -54,15 +54,24 @@
 
       <section id="campground-view" class="view dimmed">
         <h1>my trip</h1>
+        <div>
+          <p>Campgrounds</p>
+          <ul id="campground-filters"></ul>
+        </div>
         <div class ="campgrounds"></div>
       </section>
     </main>
+
+
+    <script id="option-template" type="text/x-handlebars-template">
+      <li class="campground"><a href="/campgrounds/{{id}}">{{name}}</a></li>
+    </script>
     
     <script id="park-template" type="text/x-handlebars-template">
       <article class="park">
          <img src="{{image_url}}" alt="park img"/>
           <div class="park-info">
-              <a href="/profile/plan/{{park_code}}">{{name}}</a>
+              <a href="/campgrounds/filters/{{park_code}}">{{name}}</a>
               <p>{{description}}</p>
           </div>
         </article>

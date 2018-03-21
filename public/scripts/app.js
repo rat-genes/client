@@ -9,14 +9,14 @@
 
     const resetView = () => {
         $('.view').hide();
-        module.loginView.handleLoginView();
+        loginView.handleLoginView();
     };
 
     const clearLoading = () => {
         $('#loading-screen').hide();
         $('header').removeClass('dimmed');
         $('.view').removeClass('dimmed');
-    }
+    };
 
     page('*', (ctx, next) => {
         resetView();
@@ -24,14 +24,14 @@
     });
 
     page('/', () => Park.populateParks()
-        .then(Campground.populateCampFilter)
         .then(parkView.initParkView)
         .then(clearLoading)
     );
     
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
-    page('/profile/plan/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initCampgroundView));
+    page('/campgrounds/:id', ctx => Campground.populateCampground(ctx.params.id).then(campgroundView.initCampgroundView));
+    page('/campgrounds/filters/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView));
     //page('/auth/signup', function());
 
     page('*', () => page.redirect('/'));
