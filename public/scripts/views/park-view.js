@@ -9,9 +9,10 @@
     const parkView = {};
 
     parkView.initParkView = () => {
-        $('#park-section').show();
+        $('#park-view').show();
+        $('#park-display').empty();
         Park.all.forEach(data => {
-            $('#park-section').append(template(data));
+            $('#park-display').append(template(data));
         });
         loginView.initSignup();
     };

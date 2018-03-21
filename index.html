@@ -5,57 +5,109 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/styles/base.css">
+    <link rel="stylesheet" href="public/styles/theme.css">
+    <link rel="stylesheet" href="public/styles/layout.css">
     <link rel="stylesheet" href="public/styles/modules.css">
+    <link rel="stylesheet" href="public/styles/state.css">
   </head>
 
   <body>
-    <header>
-      <h1>Hiking With Rats</h1>
+    <header class="dimmed">
+      <h2><a href="/profile">My Trips</a></h2>
+      <h2><a id="handle-login">Login</a></h2>
+      <h1><a href="/parks">Camping Fellows</a></h1>
     </header>
 
     <main>
-      <section id="handleUser">
-        <h1 class="view-title">Signup</h1>
+
+      <section id="loading-screen">
+        <h1>Loading...</h1>
+      </section>
+
+      <section id="login-view" class="view dimmed">
+        <div id="close-login"><button>X</button></div>
+        <h1>Signup</h1>
         <div>
           <a id="auth-type" href="/auth/login">Login</a>
         </div>
         <h1>login</h1>
-        <form id="admin-form">
+        <form id="login-form">
           <div>Name: <input id="name" name="passphrase" placeholder="name"></div>
           <div>Password: <input id="password" name="passphrase" placeholder="password"></div>
           <div><button type="submit">Submit</button></div>
         </form>
         <pre id="auth-error"></pre>
       </section>
-      
-      <p id="logged-in">You are Logged In!</p>
-      <section id="park-section" class="view">
+
+      <section id="park-view" class="view dimmed">
         <h1>parks</h1>
+        <div id="park-display"></div>
       </section>
-      <section id="park-detail" class="view">
-        <h1>detail</h1>
+
+      <section id="profile-view" class="view dimmed">
+        <div id="user-plans">
+          <h2><a href="/profile/plan">Trip 1</a></h2>
+          <h2><a href="/profile/plan">Trip 2</a></h2>
+          <h2><a href="/profile/plan">Trip 3</a></h2>
+        </div>
       </section>
-      <section id="profile" class="view">
-        <h1>profile</h1>
-      </section>
-      <section id="my-trip" class="view">
+
+      <section id="campground-view" class="view dimmed">
         <h1>my trip</h1>
+        <div class ="campgrounds"></div>
       </section>
     </main>
-
-    <footer>
-      <p>feet things</p>
-    </footer>
     
     <script id="park-template" type="text/x-handlebars-template">
-      <section class="park">
+      <article class="park">
          <img src="{{image_url}}" alt="park img"/>
           <div class="park-info">
-              <h2>{{name}}</h2>
+              <a href="/profile/plan/{{park_code}}">{{name}}</a>
               <p>{{description}}</p>
           </div>
-      </section>
+        </article>
     </script>
+
+    <script id="camp-template" type="text/x-handlebars-template">
+      <article class="camps">
+          <!--<img src="{{image_url}}" alt="park img"/>-->
+          <div class="camp-info">
+              <h3>{{name}}</h3>
+              <p>{{description}}</p>
+
+              <h3>Directions:</h3>
+              <p>{{directions}}</p>
+
+              <h3>Polices:</h3>
+              <p>{{regulations}}</p>
+
+              <h3>Campsites:</h3>
+                  <ul>
+                    <li>{{campsites.total_sites}}</li>
+                    <li>{{campsites.other_sites}}</li>
+                    <li>{{campsites.groups_sites}}</li>
+                    <li>{{campsites.tent_only}}</li>
+                    <li>{{campsites.electricity}}</li>
+                    <li>{{campsites.rv}}</li>
+                    <li>{{campsites.boat_launch}}</li>
+                  </ul>
+
+              <h3>Accesibility:</h3>
+                <ul>
+                  <li>{{accesibility.wheelchair_access}}</li>
+                  <li>{{accesibility.fire_policy}}</li>
+                  <li>{{accessibility.ada_bathrooms}}</li>
+                </ul>
+
+                <h3>Amenities:</h3>
+                <ul>
+                  <li>{{amenities.toilets}}</li>
+                  <li>{{amenities.showers}}</li>
+                </ul>
+          </div>
+        </article>
+    </script>
+
     <!-- third party -->
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
@@ -71,11 +123,15 @@
 
       window.module = {};
     </script>
+
     <!-- local -->
-    <script src="public/scripts/models/User.js"></script>
+    <script src="public/scripts/models/Campground.js"></script>
     <script src="public/scripts/models/Park.js"></script>
+    <script src="public/scripts/models/User.js"></script>
+    <script src="public/scripts/views/campground-view.js"></script>
     <script src="public/scripts/views/login-view.js"></script>
     <script src="public/scripts/views/park-view.js"></script>
+    <script src="public/scripts/views/profile-view.js"></script>
     <script src="public/scripts/app.js"></script>
   </body>
 </html>

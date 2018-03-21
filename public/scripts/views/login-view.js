@@ -8,6 +8,23 @@
 
     let method = '';
 
+    loginView.removeLoginView = () => {
+        $('#login-view').hide();
+        $('header').removeClass('dimmed');
+        $('.view').removeClass('dimmed');
+    }
+
+    loginView.initLoginView = () => {
+        $('header').addClass('dimmed');
+        $('.view').addClass('dimmed');
+        $('#login-view').removeClass('dimmed').show();
+        $('#close-login button').off().on('click', () => loginView.removeLoginView());
+    };
+
+    loginView.handleLoginView = () => {
+        $('#handle-login').off().on('click', () => loginView.initLoginView());
+    };
+
     loginView.initSignup = () => {
         if(User.current || localStorage.getItem('id')) {
             $('#admin-form').hide();
@@ -16,10 +33,10 @@
         else {
             method = 'signup';
             $('#auth-type').attr('href', '/auth/login').text('Already have an account? Sign In');
-            $('#admin-form').off('submit').on('submit', handleSubmit);
+            $('#login-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
-        $('#handleUser').show();
+        $('#logged-in').show();
     };
 
     loginView.initSignin = () => {
@@ -33,7 +50,7 @@
             $('#admin-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
-        $('#handleUser').show();
+        $('$login-view').show();
     };
 
     const handleSubmit = event => {
@@ -44,7 +61,7 @@
         };
         User[method](credentials)
             .then(() => {
-                $('$admin-form')[0].reset();
+                $('#login-form')[0].reset();
                 page('/');
             })
             .catch(err => {
