@@ -2,7 +2,7 @@
 
 (function(module) {
     const Park = module.Park;
-    const Camp = module.Camp;
+    const Campground = module.Campground;
     const parkView = module.parkView;
     const planView = module.planView;
     const loginView = module.loginView;
@@ -19,7 +19,7 @@
         next();
     });
 
-    page('/', () => Park.populateParks().then(parkView.initParkView));
+    page('/', () => Park.populateParks().then(Campground.populateCampFilter).then(parkView.initParkView));
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
     page('/profile/plan/:parkCode', ctx => Camp.populateCampFilter(ctx.params.parkCode).then(planView.initPlanView));
