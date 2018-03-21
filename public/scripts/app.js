@@ -35,10 +35,11 @@
     //page('/auth/signup', function());
 
     page('*', () => page.redirect('/'));
-
+    
+    page({ hashbang:true });
+    
     page();
 
-    page({ hashbang:true });
-
+    module.clearLoading = clearLoading;
     
 })(window.module);

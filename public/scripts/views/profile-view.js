@@ -5,7 +5,10 @@
 
     const profileView = {};
 
-    profileView.initProfileView = () => {$('#profile-view').show();};
+    profileView.initProfileView = () => {
+        module.clearLoading();
+        $('#profile-view').show();
+    };
 
     module.profileView = profileView;
 })(window.module);
