@@ -4,7 +4,7 @@
     const Park = module.Park;
     const Campground = module.Campground;
     const parkView = module.parkView;
-    const planView = module.planView;
+    const campgroundView = module.campgroundView;
     const loginView = module.loginView;
 
     const resetView = () => {
@@ -31,7 +31,7 @@
     
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
-    page('/profile/plan', () => planView.initPlanView());
+    page('/profile/plan/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initCampgroundView));
     //page('/auth/signup', function());
 
     page('*', () => page.redirect('/'));

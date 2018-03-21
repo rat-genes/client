@@ -1,20 +1,20 @@
 'use strict';
 
 (function(module) {
-    const Plan = module.Plan;
     const Campground = module.Campground;
 
     const template = Handlebars.compile($('#camp-template').html());
 
-    const planView = {};
+    const campgroundView = {};
 
-    planView.initPlanView = () => {
+    campgroundView.initCampgroundView = () => {
         $('#campground-view').show();
+        $('.campgrounds').empty();
         Campground.all.forEach(data => {
-            $('#campground-view').append(template(data));
-        })
+            $('.campgrounds').append(template(data));
+        });
     };
-
-    module.planView = planView;
+    
+    module.campgroundView = campgroundView;
     module.template = template;
 })(window.module);
