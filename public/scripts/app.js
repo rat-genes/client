@@ -28,12 +28,16 @@
         .then(parkView.initParkView)
         .then(clearLoading)
     );
+
+    const data = {
+        park_code: 'crla',
+        campground_id: '62'
+    };
     
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
     page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
-    page('/auth/signup', loginView.initSignup);
-    page('/auth/login', loginView.initSignin);
+    page('/trip/campground', () => Campground.saveTrip(data));
 
     page('*', () => page.redirect('/'));
     

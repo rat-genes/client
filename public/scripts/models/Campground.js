@@ -24,5 +24,26 @@
             });
     };
 
+    const data = {
+        park_code: 'crla',
+        campground_id: '62'
+    };
+
+    Campground.saveTrip = (parkCode) => {
+        // return $.post(`${API_URL}/trip/save/${parkCode}`)
+        return $.post(`${API_URL}/trip/save`, parkCode);
+    };
+
+    // Campground.saveTrip = (id) => {
+    //     return $.ajax({
+    //         url: `${API_URL}/trip/save`,
+    //         method: 'PUT'
+    //     })
+    //         .then(data => {
+    //             console.log('DATA', data);
+    //             console.log('ID', id);
+    //         });
+    // };
+
     module.Campground = Campground;
 })(window.module);
