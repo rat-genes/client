@@ -2,6 +2,7 @@
 
 (function(module) {
     const Campground = module.Campground;
+    const Plan = module.Plan;
 
     const template = Handlebars.compile($('#camp-template').html());
     const optionTemplate = Handlebars.compile($('#option-template').html());
@@ -23,6 +24,18 @@
         Campground.all.forEach(data => {
             $('#campgrounds').append(template(data));
         });
+
+        $('#add-item-button').off('click').on('click', () => {
+            event.preventDefault();
+            Plan.addToDo();
+        });
+
+        $('#to-do-list-div').off('click').on('click', () => {
+            Plan.alterToDo();
+        });
+
+        $('.remove-todo').on('click', Plan.removeToDo);
+
         $('.camps').hide();
     };
 
@@ -33,14 +46,6 @@
                 $(`.camps[data-id="${$(this).val()}"]`).fadeIn();
             }
         });
-        $('#add-item-button').on('click', () => {
-            event.preventDefault();
-
-            $('#to-do-ul').append(($('<li></li>').text(($('#newItem').val()))));            
-
-
-            // $('#to-do-ul').append($("li").text(val($('#newItem'))));
-        })
     };
     
     module.campgroundView = campgroundView;

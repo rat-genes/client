@@ -75,3 +75,28 @@
     background-color: yellow;
     border-color: orange;
 }
+
+#to-do-list div {
+    width: 100%;
+}
+
+#to-do-ul {
+    margin-left: 0;
+    padding-left: 0;
+    width: 80%;
+}
+
+#to-do-ul li button {
+    float: right;
+}
+
+#to-do-ul li .remove-todo {
+    background-color: white;
+    border-left: 1px solid black;
+    display: inline-block;
+    float: right;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 1em;
+}

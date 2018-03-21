@@ -1,40 +1,34 @@
 'use strict';
 
-// LIST: add item
-    // click add
-    // prompt for text
-    // click ok
-    // text added to list, is orange
+(function(module) {
+    
+    const Plan = {};
 
-// LIST ITEM: update, remove, mark as complete
-    // click item
-    // given option to UPDATE, REMOVE, or mark as COMPLETE
-        // UPDATE
-            // prompt for new text
-            // ok updates text
-        // REMOVE
-            // asks for confirmation
-            // ok removes
-        // COMPLETE
-            // changes color to green
+    Plan.addToDo = () => {
+        const li = $('<li></li>').text(($('#newItem').val()));
+        $('#to-do-ul').append(li);
+        const remove = $('<p></p>').text('X').addClass('remove-todo');
+        $(li).append(remove);
+        $(remove).on('click', Plan.removeToDo);
+    };
 
-// SAVE: todo list, campground info, user
-    // click save
-    // checks if info is in DB
-    // IF THERE
-        // updates
-    // IF NOT THERE
-        // creates
+    Plan.alterToDo = () => {
+        if (($(event.target).hasClass('done'))) {
+            $(event.target).removeClass('done');
+        } else {
+            $(event.target).addClass('done');
+        }
+    };
 
-// RESVERATION: single item that can be updated with date/time and notes
-    // click 'made reservation?'
-    // prompt to enter date/time
-    // click OK, date/time replaces button
-    // click date/date
-    // prompted with "plans changed?"
-    // can REMOVE or CHANGE
-    // if CHANGE
-        // prompt with new date/time
-    // if REMOVE
-        // removes date/time
-        // replaces 'made reservation?'
+    Plan.removeToDo = () => {
+        if (($(event.target).hasClass('remove-todo'))) {
+            $(event.target).parent().remove();
+        }
+    };
+
+    Plan.markToDoComplete = () => {
+        
+    }
+        module.Plan = Plan;
+    
+})(window.module);
