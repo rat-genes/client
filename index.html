@@ -28,12 +28,16 @@
         <div id="close-login"><button>X</button></div>
         <h1>Login</h1>
         <div>
-          <a id="auth-type" href="/auth/login">Login</a>
+            <form id="login-form">
+                <div>Name: <input id="login-name" name="login-name" placeholder="Name"></div>
+                <div>Password: <input id="login-password" name="login-password" placeholder="Password"></div>
+                <div><button type="submit">Login</button></div>
+              </form> 
         </div>
         <h1>Signup</h1>
-        <form id="login-form">
-          <div>Name: <input id="name" name="passphrase" placeholder="name"></div>
-          <div>Password: <input id="password" name="passphrase" placeholder="password"></div>
+        <form id="signup-form">
+          <div>Name: <input id="signup-name" name="signup-name" placeholder="Name"></div>
+          <div>Password: <input id="signup-password" name="signup-password" placeholder="Password"></div>
           <div><button type="submit">Submit</button></div>
         </form>
         <pre id="auth-error"></pre>

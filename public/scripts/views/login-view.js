@@ -6,9 +6,10 @@
 
     const loginView = {};
 
-    let method = '';
-
     loginView.removeLoginView = () => {
+        $('#signup-form')[0].reset();
+        $('#login-form')[0].reset();
+        $('#auth-error').text('');
         $('#login-view').hide();
         $('header').removeClass('dimmed');
         $('.view').removeClass('dimmed');
@@ -35,46 +36,42 @@
     };
 
     loginView.initSignup = () => {
-        if(User.current || localStorage.getItem('id')) {
-            $('#admin-form').hide();
-            $('#logged-in').show();
-        }
-        else {
-            method = 'signup';
-            $('#auth-type').attr('href', '/auth/login').text('Already have an account? Sign In');
-            $('#login-form').off('submit').on('submit', handleSubmit);
-            $('#logged-in').hide();
-        }
-        $('#logged-in').show();
+        $('#auth-error').text('');
+        $('#login-form').off('submit').on('submit', handleLoginSubmit);
+        $('#signup-form').off('submit').on('submit', handleSignupSubmit);
     };
 
-    loginView.initSignin = () => {
-        if(User.current) {
-            $('#admin-form').hide();
-            $('#logged-in').show();
-        }
-        else {
-            method = 'signin';
-            $('#auth-type').attr('href', '/auth/signup').text('Need to create an account? Sign Up');
-            $('#admin-form').off('submit').on('submit', handleSubmit);
-            $('#logged-in').hide();
-        }
-        $('$login-view').show();
-    };
-
-    const handleSubmit = event => {
+    const handleSignupSubmit = event => {
         event.preventDefault();
         const credentials = {
-            name: $('#name').val(),
-            password: $('#password').val()
+            name: $('#signup-name').val(),
+            password: $('#signup-password').val()
         };
-        User[method](credentials)
+        User.signup(credentials)
             .then(() => {
+                $('#signup-form')[0].reset();
                 $('#login-form')[0].reset();
                 page('/');
             })
             .catch(err => {
-                $('#auth-error').text(err.responseJSON.error);
+                $('#auth-error').text(err.responseJSON.error.toUpperCase());
+            });
+    };
+
+    const handleLoginSubmit = event => {
+        event.preventDefault();
+        const credentials = {
+            name: $('#login-name').val(),
+            password: $('#login-password').val()
+        };
+        User.signin(credentials)
+            .then(() => {
+                $('#login-form')[0].reset();
+                $('#signup-form')[0].reset();
+                page('/');
+            })
+            .catch(err => {
+                $('#auth-error').text(err.responseJSON.error.toUpperCase());
             });
     };
 

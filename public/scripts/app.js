@@ -33,8 +33,6 @@
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
     page('/profile/plan/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initCampgroundView));
-    page('/auth/signup', loginView.initSignup);
-    page('/auth/login', loginView.initSignin);
 
     page('*', () => page.redirect('/'));
     
