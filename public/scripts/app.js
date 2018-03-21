@@ -30,8 +30,8 @@
     
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
-    page('/campgrounds/:id', ctx => Campground.populateCampground(ctx.params.id).then(campgroundView.initCampgroundView));
     page('/campgrounds/filters/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView));
+    page('/campgrounds/:id', ctx => Campground.populateCampground(ctx.params.id).then(campgroundView.initCampgroundView));
     //page('/auth/signup', function());
 
     page('*', () => page.redirect('/'));

@@ -11,6 +11,7 @@
     campgroundView.initFilterView = () => {
         $('#campground-view').show();
         $('#campground-filters').empty();
+        $('#campgrounds').empty();
         Campground.all.forEach(camp => {
             $('#campground-filters').append(optionTemplate(camp));
         });
@@ -18,9 +19,9 @@
 
     campgroundView.initCampgroundView = () => {
         $('#campground-view').show();
-        $('.campgrounds').empty();
+        $('#campgrounds').empty();
         Campground.all.forEach(data => {
-            $('.campgrounds').append(template(data));
+            $('#campgrounds').append(template(data));
         });
     };
     
