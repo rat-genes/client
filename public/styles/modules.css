@@ -1,3 +1,17 @@
+#loading-screen {
+    background-color: white;
+    height: 100%;
+    opacity: .5;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+#loading-screen h1 {
+    font-size: 3em;
+}
+
 #park-view img {
     max-width: 15%;
 }

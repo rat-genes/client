@@ -14,12 +14,21 @@
         module.loginView.handleLoginView();
     };
 
+    const clearLoading = () => {
+        $('#loading-screen').hide();
+    }
+
     page('*', (ctx, next) => {
         resetView();
         next();
     });
 
-    page('/', () => Park.populateParks().then(Campground.populateCampFilter).then(parkView.initParkView));
+    page('/', () => Park.populateParks()
+        .then(Campground.populateCampFilter)
+        .then(parkView.initParkView)
+        .then(clearLoading)
+    );
+    
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
     page('/profile/plan', () => planView.initPlanView());
@@ -31,4 +40,5 @@
 
     page({ hashbang:true });
 
+    
 })(window.module);
