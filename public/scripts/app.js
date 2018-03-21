@@ -8,7 +8,7 @@
     
     const resetView = () => {
         $('.view').hide();
-        module.loginView.handleLoginView();
+        loginView.handleLoginView();
     };
 
     const clearLoading = () => {
@@ -23,14 +23,13 @@
     });
 
     page('/', () => Park.populateParks()
-        .then(Campground.populateCampFilter)
         .then(parkView.initParkView)
         .then(clearLoading)
     );
     
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
-    page('/profile/plan/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initCampgroundView));
+    page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
 
     page('*', () => page.redirect('/'));
     
