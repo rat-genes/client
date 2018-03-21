@@ -30,8 +30,10 @@
     // };
 
     Campground.saveTrip = (data) => {
-        // return $.post(`${API_URL}/trip/save/${parkCode}`)
-        return $.post(`${API_URL}/trip/save`, data);
+        data.user_id = localStorage.id;
+        return $.post(`${API_URL}/trip/save`, data)
+            .then(page.redirect('/'));
+
     };
 
     // Campground.saveTrip = (id) => {
