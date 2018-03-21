@@ -12,9 +12,12 @@
         $('#login-view').hide();
         $('header').removeClass('dimmed');
         $('.view').removeClass('dimmed');
-    }
+    };
 
     loginView.initLoginView = () => {
+        if(User.current || localStorage.getItem('id')) {
+            module.User.logout();
+        }
         $('header').addClass('dimmed');
         $('.view').addClass('dimmed');
         $('#login-view').removeClass('dimmed').show();
@@ -22,7 +25,13 @@
     };
 
     loginView.handleLoginView = () => {
-        $('#handle-login').off().on('click', () => loginView.initLoginView());
+        if(User.current || localStorage.getItem('id')) {
+            $('#handle-login').off().on('click', () => loginView.initLoginView());
+            $('#handle-login').text('Logout');
+        } else {
+            $('#handle-login').text('Login/Signup');
+            $('#handle-login').off().on('click', () => loginView.initLoginView());
+        }
     };
 
     loginView.initSignup = () => {
