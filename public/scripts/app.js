@@ -4,10 +4,8 @@
     const Park = module.Park;
     const Campground = module.Campground;
     const parkView = module.parkView;
-
     const campgroundView = module.campgroundView;
-    const loginView = module.loginView;
-
+    
     const resetView = () => {
         $('.view').hide();
         module.loginView.handleLoginView();
