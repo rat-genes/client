@@ -10,12 +10,12 @@
     const resetView = () => {
         $('.view').hide();
         $('.view').removeClass('dimmed');
-        $('header').removeClass('dimmed');
         module.loginView.handleLoginView();
     };
 
     const clearLoading = () => {
         $('#loading-screen').hide();
+        $('header').removeClass('dimmed');
     }
 
     page('*', (ctx, next) => {
