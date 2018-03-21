@@ -9,7 +9,7 @@
     let method = '';
 
     loginView.initSignup = () => {
-        if(User.current) {
+        if(User.current || localStorage.getItem('id')) {
             $('#admin-form').hide();
             $('#logged-in').show();
         }
@@ -19,7 +19,7 @@
             $('#admin-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
-        // $('$admin-view').show();
+        $('#handleUser').show();
     };
 
     loginView.initSignin = () => {
@@ -33,7 +33,7 @@
             $('#admin-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
-        // $('$admin-view').show();
+        $('#handleUser').show();
     };
 
     const handleSubmit = event => {
@@ -44,7 +44,6 @@
         };
         User[method](credentials)
             .then(() => {
-                console.log('STUFF', credentials);
                 $('$admin-form')[0].reset();
                 page('/');
             })
