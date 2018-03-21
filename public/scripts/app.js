@@ -33,7 +33,9 @@
     
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
-    page('/profile/plan/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initCampgroundView));
+    // THIS LINE MUST BE REVERTED TO THE BELOW COMMENTED OUT LINE UPON COMPLETION OF TODO
+    page('/profile/plan/', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initCampgroundView));
+    // page('/profile/plan/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initCampgroundView));
     page('/auth/signup', loginView.initSignup);
     page('/auth/login', loginView.initSignin);
 

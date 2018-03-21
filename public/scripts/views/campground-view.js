@@ -13,6 +13,14 @@
         Campground.all.forEach(data => {
             $('.campgrounds').append(template(data));
         });
+        $('#add-item-button').on('click', () => {
+            event.preventDefault();
+
+            $('#to-do-ul').append(($('<li></li>').text(($('#newItem').val()))));            
+
+
+            // $('#to-do-ul').append($("li").text(val($('#newItem'))));
+        })
     };
     
     module.campgroundView = campgroundView;
