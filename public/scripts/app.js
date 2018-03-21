@@ -17,7 +17,7 @@
         $('#loading-screen').hide();
         $('header').removeClass('dimmed');
         $('.view').removeClass('dimmed');
-    }
+    };
 
     page('*', (ctx, next) => {
         resetView();
