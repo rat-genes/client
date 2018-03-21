@@ -26,14 +26,28 @@
     };
 
     loginView.initSignup = () => {
-        if(User.current) {
-            $('#login-form').hide();
+        if(User.current || localStorage.getItem('id')) {
+            $('#admin-form').hide();
             $('#logged-in').show();
         }
         else {
             method = 'signup';
             $('#auth-type').attr('href', '/auth/login').text('Already have an account? Sign In');
             $('#login-form').off('submit').on('submit', handleSubmit);
+            $('#logged-in').hide();
+        }
+        $('#logged-in').show();
+    };
+
+    loginView.initSignin = () => {
+        if(User.current) {
+            $('#admin-form').hide();
+            $('#logged-in').show();
+        }
+        else {
+            method = 'signin';
+            $('#auth-type').attr('href', '/auth/signup').text('Need to create an account? Sign Up');
+            $('#admin-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
         $('$login-view').show();
@@ -45,8 +59,7 @@
             name: $('#name').val(),
             password: $('#password').val()
         };
-
-        User[method(credentials)]
+        User[method](credentials)
             .then(() => {
                 $('#login-form')[0].reset();
                 page('/');
