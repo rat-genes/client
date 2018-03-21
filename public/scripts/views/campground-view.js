@@ -5,13 +5,12 @@
 
     const template = Handlebars.compile($('#camp-template').html());
     const optionTemplate = Handlebars.compile($('#option-template').html());
-
     const campgroundView = {};
 
     campgroundView.initFilterView = () => {
         $('#campground-view').show();
         $('#campground-filters').empty();
-        $('#campgrounds').empty();
+        $('#campground-filters').append('<option id="header" value="header">Campgrounds</option>');
         Campground.all.forEach(camp => {
             $('#campground-filters').append(optionTemplate(camp));
         });
@@ -24,6 +23,7 @@
         Campground.all.forEach(data => {
             $('#campgrounds').append(template(data));
         });
+        $('.camps').hide();
     };
 
     campgroundView.handleFilter = () => {
@@ -36,5 +36,4 @@
     };
     
     module.campgroundView = campgroundView;
-    // module.template = template;
 })(window.module);

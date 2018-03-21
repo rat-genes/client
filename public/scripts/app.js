@@ -30,7 +30,6 @@
     
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
-    // page('/campgrounds/filter/:id', ctx => Campground.populateCampground(ctx.params.id).then(campgroundView.initCampgroundView));
     page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
     //page('/auth/signup', function());
 
