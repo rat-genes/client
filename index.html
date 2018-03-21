@@ -56,7 +56,9 @@
         <h1>my trip</h1>
         <div>
           <p>Campgrounds</p>
-          <select id="campground-filters"></select>
+          <select id="campground-filters">
+            <option val="">Campgrounds</option>
+          </select>
         </div>
         <div id="campgrounds"></div>
       </section>
@@ -79,7 +81,7 @@
     </script>
 
     <script id="camp-template" type="text/x-handlebars-template">
-      <article class="camps">
+      <article class="camps" data-id={{id}}>
           <!--<img src="{{image_url}}" alt="park img"/>-->
           <div class="camp-info">
               <h3>{{name}}</h3>

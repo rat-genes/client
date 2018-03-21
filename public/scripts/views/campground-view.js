@@ -15,6 +15,7 @@
         Campground.all.forEach(camp => {
             $('#campground-filters').append(optionTemplate(camp));
         });
+        campgroundView.handleFilter();
     };
 
     campgroundView.initCampgroundView = () => {
@@ -22,6 +23,15 @@
         $('#campgrounds').empty();
         Campground.all.forEach(data => {
             $('#campgrounds').append(template(data));
+        });
+    };
+
+    campgroundView.handleFilter = () => {
+        $('#campground-filters').on('change', function() {
+            if($(this).val()) {
+                $('.camps').hide();
+                $(`.camps[data-id="${$(this).val()}"]`).fadeIn();
+            }
         });
     };
     
