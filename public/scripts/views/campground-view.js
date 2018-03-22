@@ -40,8 +40,6 @@
             Plan.alterChecklistItem();
         });
 
-        $('.remove-checklist-item').on('click', Plan.removeToDo);
-
         $('.camps').hide();
     };
 
