@@ -21,7 +21,8 @@
         return $.ajax({
             url: `${API_URL}/profile/deletetrip/${id}`,
             method: 'DELETE'
-        });
+        })
+            .then(response => console.log(response));
     };
 
     Plan.addToDo = () => {
