@@ -82,108 +82,65 @@
     };
 
     Plan.loadPlan = () => {
-        $('#campground-view').empty().html(
-            `
-            <div>
-                <h2>Campgrounds</h2>
-                <select id="campground-filters"></select>
-            </div>
-          
-            <div id="campgrounds"></div>
-          
-            <div id="checklist">${Plan.checklist}</div>
-            
-            <div id="add-item-div">
-            <h2>To-do List</h2>
-            <input type="text" id="newItem">
-            <button id="add-item-button" type="submit">Add To-do</button>
-            </div>
-            
-            <div id="to-do-list-div">
-            <ul id="to-do-ul">${Plan.toDoList}</ul>
-            </div>
-            
-            <div id="save-plan-div" class="hidden">
-            <button type="submit" id="save-plan-button">Save Plan</button>
-            </div>
-            `
-        )
-        console.log('Placeholder!');
+        $('#checklist').empty().html(Plan.checklist);
+        $('#to-do-ul').empty().html(Plan.toDoList);
+        $('#save-plan-div').hide();
     }
 
+    Plan.defaultChecklist =
+    `
+    
+    <h2>Trip Checklist</h2>
+
+    <h2>Shelter and Bedding</h2>
+    <ul>
+      <li>Tent</li>
+      <li>Tarp</li>
+      <li>Sleepingbag(thickness depending on climate)</li>
+      <li>Camp Chairs</li>
+      <li>Pillows</li>
+    </ul>
+
+    <h2>Cooking and Storage</h2>
+
+    <ul>
+      <li>Cooler</li>
+      <li>Cooking/Eating Utensils</li>
+      <li>Trashbags</li>
+      <li>Firewood(if allowed)</li>
+      <li>Dishwash Bin</li>
+      <li>Dish Soap</li>
+    </ul>
+
+    <h2>Toiletries</h2>
+
+    <ul>
+      Toothbrush/Toothpaste/Floss</li>
+      Shampoo/Conditioner</li>
+      Towel</li>
+      Soap</li>
+      Sunscreen</li>
+    </ul>
+
+    <h2>Clothed(Depending on Climate)</h2>
+    <ul>
+      Underwear</li>
+      Socks</li>
+      Wool Socks</li>
+      T-Shirts</li>
+      Thermal or Long Sleeve Shirts</li>
+      Sweaters/Sweatshirts</li>
+      Hiking Pants/Shorts</li>
+      Hiking Boots/Trail Shoes</li>
+      Hat/Bandana</li>
+      Camp Shoes/Flip-Flop</li>
+    </ul>
+ 
+    `
     Plan.newPlan = () => {
-        $('#campground-view').empty().html(
-            
-            `<div>
-                <h2>Campgrounds</h2>
-                <select id="campground-filters"></select>
-            </div>
-          
-          <div id="campgrounds"></div>
-          
-        <div id="checklist">
-        <h2>Trip Checklist</h2>
-        
-        <h2>Shelter and Bedding</h2>
-        <ul>
-        <li>Tent</li>
-        <li>Tarp</li>
-        <li>Sleepingbag(thickness depending on climate)</li>
-        <li>Camp Chairs</li>
-        <li>Pillows</li>
-        </ul>
-        
-        <h2>Cooking and Storage</h2>
-        
-        <ul>
-        <li>Cooler</li>
-        <li>Cooking/Eating Utensils</li>
-        <li>Trashbags</li>
-        <li>Firewood(if allowed)</li>
-        <li>Dishwash Bin</li>
-        <li>Dish Soap</li>
-        </ul>
-        
-        <h2>Toiletries</h2>
-        
-        <ul>
-        <li>Toothbrush/Toothpaste/Floss</li>
-        <li>Shampoo/Conditioner</li>
-        <li>Towel</li>
-        <li>Soap</li>
-        <li>Sunscreen</li>
-        </ul>
-        
-        <h2>Clothed(Depending on Climate)</h2>
-        <ul>
-        <li>Underwear</li>
-            <li>Socks</li>
-            <li>Wool Socks</li>
-            <li>T-Shirts</li>
-            <li>Thermal or Long Sleeve Shirts</li>
-            <li>Sweaters/Sweatshirts</li>
-            <li>Hiking Pants/Shorts</li>
-            <li>Hiking Boots/Trail Shoes</li>
-            <li>Hat/Bandana</li>
-            <li>Camp Shoes/Flip-Flop</li>
-            </ul>
-            </div>
-            
-            <div id="add-item-div">
-            <h2>To-do List</h2>
-            <input type="text" id="newItem">
-            <button id="add-item-button" type="submit">Add To-do</button>
-            </div>
-            
-            <div id="to-do-list-div">
-            <ul id="to-do-ul">
-            </ul>
-            </div>
-            
-            <div id="save-plan-div" class="hidden">
-            <button type="submit" id="save-plan-button">Save Plan</button>
-            </div>`        
-        )
+        $('#checklist').empty().html(Plan.defaultChecklist)
+        $('#to-do-ul').empty();
+        $('#save-plan-div').hide();
     }
         
         module.Plan = Plan;
