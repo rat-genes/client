@@ -18,6 +18,10 @@
         campgroundView.handleFilter();
     };
 
+    //TODO: Write method to clear out all data (called if loading a trip)
+
+    //TODO: Write method to populate page with loaded DB data
+
     campgroundView.initCampgroundView = (ctx) => {
         console.log(ctx);
         $('#campground-view').show();
@@ -28,12 +32,6 @@
         });
 
         $('.camps').hide();
-
-        // if there is DB data, clear everything and use it
-
-        // else, leave the template data there
-
-        // then create all listeners
 
         $('#add-item-button').off('click').on('click', () => {
             event.preventDefault();
