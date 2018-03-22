@@ -18,11 +18,8 @@
         campgroundView.handleFilter();
     };
 
-    //TODO: Write method to clear out all data (called if loading a trip)
-
-    //TODO: Write method to populate page with loaded DB data
     campgroundView.initSavedPlan = (ctx) => {
-        $(`#campground-filters`).prop('selectedIndex', Campground.campgroundIndex).change();
+        $(`#campground-filters`).prop('selectedIndex', Plan.index).change();
     };
 
     campgroundView.initCampgroundView = (ctx) => {
