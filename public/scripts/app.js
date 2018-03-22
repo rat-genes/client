@@ -34,11 +34,9 @@
 
     page('/parks', () => parkView.initParkView());
     page('/profile', () => Plan.loadTrip().then(profileView.initProfileView));
-    page('/profile/plan/', ctx => campgroundView.initCampgroundView);
-    //TODO: If coming from MY TRIPS, clear HTML and repopulate from DB
-    page('/profile/plan/:id', ctx => campgroundView.initCampgroundView);
-    page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
-    page('/trip/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
+    page('/profile/plan/', ctx => (campgroundView.initCampgroundView));
+    page('/profile/plan/:id', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(Plan.loadPlan).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
+    page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(Plan.newPlan).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
     page('/trip/campground/:id/:parkCode', ctx => Campground.saveTrip({park_code: ctx.params.parkCode, campground_id: ctx.params.id}));
 
     page('*', () => page.redirect('/'));
