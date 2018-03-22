@@ -8,6 +8,23 @@
 
     Plan.all = [];
 
+    Plan.myTrips = () => {
+        const user_id = {id: localStorage.id};
+        return $.getJSON(`${API_URL}/trip/load`, user_id)
+            .then(data => {
+                Plan.all = data.map(each => new Plan(each));
+            })
+            .then(console.log('PLAN', Plan.all));
+    };
+
+    Plan.deleteTrip = (id) => {
+        return $.ajax({
+            url: `${API_URL}/profile/deletetrip/${id}`,
+            method: 'DELETE'
+        })
+            .then(response => console.log(response));
+    };
+
     Plan.addToDo = () => {
         const li = $('<li></li>').text(($('#newItem').val()));
         $('#to-do-ul').append(li);
@@ -195,8 +212,6 @@
             </div>`
         );
     };
-        
-    module.Plan = Plan;
         
     module.Plan = Plan;
 })(window.module);
