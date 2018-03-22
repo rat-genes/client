@@ -44,17 +44,21 @@
         }
     };
 
-    // Plan.saveTrip = () => {
-    //     const user_id = {id: localStorage.id};
-    //     return $.getJSON(`${API_URL}/trip/load`, user_id)
-    //         .then(data => {
-    //             Plan.all = data.map(each => new Plan(each));
-    //         })
-    //         .then(console.log('PLAN', Plan.all));
-    // };
+    Plan.saveTrip = () => {
+        const user_id = {id: localStorage.id};
+        return $.getJSON(`${API_URL}/trip/load`, user_id)
+            .then(data => {
+                Plan.all = data.map(each => new Plan(each));
+            })
+            .then(console.log('PLAN', Plan.all));
+    };
 
     Plan.saveTodos = (data) => {
         event.preventDefault();
+        if (($('#trip-saved'))){$('#trip-saved').remove();}
+
+        const saved = $('<p id="trip-saved">Trip saved</p>');
+        $('#save-plan-div').append(saved);
 
         const checklistHtml = $('#checklist').html();
         const todoHtml = $('#to-do-ul').html();
