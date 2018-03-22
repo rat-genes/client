@@ -21,9 +21,11 @@
     //TODO: Write method to clear out all data (called if loading a trip)
 
     //TODO: Write method to populate page with loaded DB data
+    campgroundView.initSavedPlan = (ctx) => {
+        $(`#campground-filters`).prop('selectedIndex', Campground.campgroundIndex).change();
+    }
 
     campgroundView.initCampgroundView = (ctx) => {
-        console.log(ctx);
         $('#campground-view').show();
         $('#campgrounds').empty();
 
@@ -48,13 +50,11 @@
             Plan.alterChecklistItem();
         });
 
-        Campground.campground = 'No Campground Selected';
-
         $('#campground-filters').off('click').on('change', (e) => {
-            Campground.campground = e.target.selectedIndex;
+            Campground.campgroundIndex = e.target.selectedIndex;
         });
 
-        $('#save-plan-button').off().on('click', Plan.savePlan);
+        $('#save-plan-button').off().on('click', Plan.saveTodos);
     };
 
     campgroundView.handleFilter = () => {
