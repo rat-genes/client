@@ -117,9 +117,9 @@
             <button type="submit" id="save-plan-button">Save Plan</button>
             </div>
             `
-        )
+        );
         console.log('Placeholder!');
-    }
+    };
 
     Plan.newPlan = () => {
         $('#campground-view').empty().html(
@@ -192,11 +192,11 @@
             
             <div id="save-plan-div" class="hidden">
             <button type="submit" id="save-plan-button">Save Plan</button>
-            </div>`        
-        )
-    }
+            </div>`
+        );
+    };
         
-        module.Plan = Plan;
+    module.Plan = Plan;
         
-        module.Plan = Plan;
-    })(window.module);
+    module.Plan = Plan;
+})(window.module);
