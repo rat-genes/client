@@ -70,7 +70,7 @@
             .then(console.log('PLAN', Plan.all));
     };
 
-    Plan.saveTodos = (data) => {
+    Plan.saveTodos = () => {
         event.preventDefault();
         if (($('#trip-saved'))){$('#trip-saved').remove();}
 
@@ -86,8 +86,6 @@
             user_id: localStorage.id,
             campground_id: module.Campground.campgroundIndex
         };
-
-        const todoData = {};
 
         return $.post(`${API_URL}/trip/save`, parkData)
             .then ($.get(`${API_URL}/trip/load`, parkData))
@@ -117,7 +115,7 @@
                 console.log(result);
                 $('#checklist').html(result[0].checklist);
                 $('#to-do-ul').html(result[0].todos);
-            })
+            });
     };
 
     Plan.defaultChecklist =
@@ -169,14 +167,13 @@
       Camp Shoes/Flip-Flop</li>
     </ul>
  
-    `
+    `;
     Plan.newPlan = () => {
-        $('#checklist').empty().html(Plan.defaultChecklist)
+        $('#checklist').empty().html(Plan.defaultChecklist);
         $('#to-do-ul').empty();
         $('#save-plan-div').hide();
-    }
-        
-        module.Plan = Plan;
+    };
         
     module.Plan = Plan;
+    
 })(window.module);

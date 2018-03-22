@@ -8,8 +8,10 @@
     const tripTemplate = Handlebars.compile($('#trip-template').html());
 
     profileView.initProfileView = () => {
+        $('#notrips').hide();
         $('#profile-view').show();
         $('#user-plans').empty();
+        if(Plan.all.length === 0) $('#notrips').show();
         Plan.all.forEach(data => {
             $('#user-plans').append(tripTemplate(data));
         });
