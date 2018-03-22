@@ -81,13 +81,43 @@
             )
     };
 
+    Plan.loadPlan = () => {
+        $('#campground-view').empty().html(
+            `
+            <div>
+                <h2>Campgrounds</h2>
+                <select id="campground-filters"></select>
+            </div>
+          
+            <div id="campgrounds"></div>
+          
+            <div id="checklist">${Plan.checklist}</div>
+            
+            <div id="add-item-div">
+            <h2>To-do List</h2>
+            <input type="text" id="newItem">
+            <button id="add-item-button" type="submit">Add To-do</button>
+            </div>
+            
+            <div id="to-do-list-div">
+            <ul id="to-do-ul">${Plan.toDoList}</ul>
+            </div>
+            
+            <div id="save-plan-div" class="hidden">
+            <button type="submit" id="save-plan-button">Save Plan</button>
+            </div>
+            `
+        )
+        console.log('Placeholder!');
+    }
+
     Plan.newPlan = () => {
         $('#campground-view').empty().html(
             
             `<div>
-            <h2>Campgrounds</h2>
-          <select id="campground-filters"></select>
-          </div>
+                <h2>Campgrounds</h2>
+                <select id="campground-filters"></select>
+            </div>
           
           <div id="campgrounds"></div>
           

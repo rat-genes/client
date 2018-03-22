@@ -49,91 +49,13 @@
       </section>
 
       <section id="profile-view" class="view dimmed">
-        <div id="user-plans">
-          <h2><a href="/profile/plan">Trip 1</a></h2>
-          <h2><a href="/profile/plan">Trip 2</a></h2>
-          <h2><a href="/profile/plan">Trip 3</a></h2>
-        </div>
-      </section>
-
-      <section id="campground-view" class="view dimmed">
-        <h1>my trip</h1>
-
-        <div>
-          <h2>Campgrounds</h2>
-          <select id="campground-filters"></select>
-        </div>
-
-        <div id="campgrounds"></div>
-
-        <div id="checklist">
-          <h2>Trip Checklist</h2>
-
-          <h2>Shelter and Bedding</h2>
-          <ul>
-            <li>Tent</li>
-            <li>Tarp</li>
-            <li>Sleepingbag(thickness depending on climate)</li>
-            <li>Camp Chairs</li>
-            <li>Pillows</li>
-          </ul>
-          
-          <h2>Cooking and Storage</h2>
-
-          <ul>
-            <li>Cooler</li>
-            <li>Cooking/Eating Utensils</li>
-            <li>Trashbags</li>
-            <li>Firewood(if allowed)</li>
-            <li>Dishwash Bin</li>
-            <li>Dish Soap</li>
-          </ul>
-
-          <h2>Toiletries</h2>
-
-          <ul>
-            <li>Toothbrush/Toothpaste/Floss</li>
-            <li>Shampoo/Conditioner</li>
-            <li>Towel</li>
-            <li>Soap</li>
-            <li>Sunscreen</li>
-          </ul>
-            
-          <h2>Clothed(Depending on Climate)</h2>
-          <ul>
-            <li>Underwear</li>
-            <li>Socks</li>
-            <li>Wool Socks</li>
-            <li>T-Shirts</li>
-            <li>Thermal or Long Sleeve Shirts</li>
-            <li>Sweaters/Sweatshirts</li>
-            <li>Hiking Pants/Shorts</li>
-            <li>Hiking Boots/Trail Shoes</li>
-            <li>Hat/Bandana</li>
-            <li>Camp Shoes/Flip-Flop</li>
-          </ul>
-        </div>
-
-        <div id="add-item-div">
-          <h2>To-do List</h2>
-          <input type="text" id="newItem">
-          <button id="add-item-button" type="submit">Add To-do</button>
-        </div>
-
-        <div id="to-do-list-div">
-          <ul id="to-do-ul">
-          </ul>
-        </div>
-
-        <div id="save-plan-div" class="hidden">
-          <button type="submit" id="save-plan-button">Save Plan</button>
-        </div>
+        <h1>Test</h1>
       </section>
     </main>
 
     <!-- TEMPLATES -->
     <script id="trip-template" type="text/x-handlebars-template">
-      <p><a href="" data-campground-id="{{campground_id}}" data-park-code="{{park_code}}" data-user-id="{{user_id}}" data-trip-id="{{id}}">{{id}}</a></p>
+      <p><a href="/profile/plan/{{id}}" data-campground-id="{{campground_id}}" data-park-code="{{park_code}}" data-user-id="{{user_id}}" data-trip-id="{{id}}">{{id}}</a></p>
     </script>
 
     <script id="option-template" type="text/x-handlebars-template">
