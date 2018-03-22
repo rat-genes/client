@@ -61,7 +61,7 @@
         $('#campground-filters').on('change', function() {
             if($(this).val()) {
                 $('.camps').hide();
-                $(`.camps[data-id="${$(this).val()}"]`).fadeIn();
+                $(`.camps[data-campground-id="${$(this).val()}"]`).fadeIn();
             }
         });
     };

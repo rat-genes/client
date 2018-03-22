@@ -131,15 +131,15 @@
       </section>
     </main>
 
+    <!-- TEMPLATES -->
     <script id="trip-template" type="text/x-handlebars-template">
-      <p><a href="">{{id}}</a></p>
+      <p><a href="" data-campground-id="{{campground_id}}" data-park-code="{{park_code}}" data-user-id="{{user_id}}" data-trip-id="{{id}}">{{id}}</a></p>
     </script>
 
     <script id="option-template" type="text/x-handlebars-template">
       <option class="campground" value="{{id}}">{{name}}</option>
     </script>
     
-    <!-- TEMPLATES -->
     <script id="park-template" type="text/x-handlebars-template">
       <article class="park">
          <img src="{{image_url}}" alt="park img"/>
@@ -151,7 +151,8 @@
     </script>
 
     <script id="camp-template" type="text/x-handlebars-template">
-      <article class="camps" data-id="{{id}}" data-park-code="{{parkCode}}">
+      <!-- <article class="camps" data-id="{{id}}" data-park-code="{{parkCode}}"> -->
+      <article class="camps" data-campground-id="{{id}}" data-park-code="{{parkCode}}">
           <!--<img src="{{image_url}}" alt="park img"/>-->
           <div class="camp-info">
               <h3><a href="/trip/campground/{{id}}/{{parkCode}}">{{name}}</a></h3>
