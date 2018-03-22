@@ -9,70 +9,82 @@
     <link rel="stylesheet" href="public/styles/layout.css">
     <link rel="stylesheet" href="public/styles/modules.css">
     <link rel="stylesheet" href="public/styles/state.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
   </head>
 
   <body>
-    <header class="dimmed">
-      <h2 id="mytrips"><a href="/profile">My Trips</a></h2>
-      <h2><a id="handle-login">Login</a></h2>
-      <h1><a href="/">Camping Fellows</a></h1>
-    </header>
 
-    <main>
-
-      <section id="loading-screen">
-        <h1>Loading...</h1>
-      </section>
-
-      <section id="login-view" class="view dimmed">
-        <div id="close-login"><button>X</button></div>
-        <h1>Login</h1>
-        <div>
-            <form id="login-form">
-                <div>Name: <input id="login-name" name="login-name" placeholder="Name" required></div>
-                <div>Password: <input id="login-password" name="login-password" placeholder="Password" required></div>
-                <div><button type="submit">Login</button></div>
-              </form> 
+      <header class="dimmed">
+        <div id="logo">
+          <img src="public/styles/trillium.png" alt="Camp Fellows">
+          <h1>Camp Fellows</h1>
         </div>
-        <h1>Signup</h1>
-        <form id="signup-form">
-          <div>Name: <input id="signup-name" name="signup-name" placeholder="Name" required></div>
-          <div>Password: <input id="signup-password" name="signup-password" placeholder="Password" required></div>
-          <div><button type="submit">Submit</button></div>
-        </form>
-        <pre id="auth-error"></pre>
-      </section>
+        <ul id="activity">
+            <li><a href="/parks">Parks</a></li>
+            <li><a href="/profile">My Trips</a></li>
+            <li><a id="handle-login">Login</a></li>
+          </ul> 
+      </header>
 
-      <section id="park-view" class="view dimmed">
-        <h1>parks</h1>
-        <div id="park-display"></div>
-      </section>
+        <main id="content">
+            <article id="loading-screen">
+              <h1>Loading...</h1>
+            </article>
 
-      <section id="profile-view" class="view dimmed">
-        <h2><a href="/" id="notrips">No Trips Yet. Start One!</a></h2>
-        <div id="user-plans">
-        </div>
-      </section>
+            <article id="login-view" class="view dimmed">
+              <div id="close-login"><button>X</button></div>
+              <h1>Login</h1>
+              <div>
+                  <form id="login-form">
+                      <div>Name: <input id="login-name" name="login-name" placeholder="Name" required></div>
+                      <div>Password: <input id="login-password" name="login-password" placeholder="Password" required></div>
+                      <div><button type="submit">Login</button></div>
+                    </form> 
+              </div>
+              <h1>Signup</h1>
+              <form id="signup-form">
+                <div>Name: <input id="signup-name" name="signup-name" placeholder="Name" required></div>
+                <div>Password: <input id="signup-password" name="signup-password" placeholder="Password" required></div>
+                <div><button type="submit">Submit</button></div>
+              </form>
+              <pre id="auth-error"></pre>
+            </article>
+            
+            <article id="park-view" class="view dimmed">
+              <div id="blurb">
+                <p>The Camp Fellows mission is to bring you the info needed to get your plan to explore the treasures of the Pacific Northwest Started. Click on the park links below to get started. Happy roughing it!</p>
+              </div>
+              <div id="park-display"></div> 
+            </article>
+            
+            <article id="profile-view" class="view dimmed">
+                <h2><a href="/" id="notrips">No Trips Yet. Start One!</a></h2>
+                <div id="user-plans"></div>
+            </article>
 
-      <section id="campground-view" class="view dimmed">
-        <div>
-          <h2>Campgrounds</h2>
-          <select id="campground-filters"></select>
-      </div>
-    
-      <div id="campgrounds"></div>
-        <div id="checklist"> </div>
+            <article id="campground-view" class="view dimmed content">
+              <h1>my trip</h1>
 
-        <div id="add-item-div">
-          <h2>To-do List</h2>
-          <input type="text" id="newItem">
-          <button id="add-item-button" type="submit">Add To-do</button>
-        </div>
+              <div>
+                <h2>Campgrounds</h2>
+                <select id="campground-filters"></select>
+              </div>
 
-        <div id="to-do-list-div">
-          <ul id="to-do-ul">
-          </ul>
-        </div>
+              <div id="campgrounds"></div>
+
+              <div id="checklist">
+                <h2>Trip Checklist</h2>
+
+                <h2>Shelter and Bedding</h2>
+                <ul>
+                  <li>Tent</li>
+                  <li>Tarp</li>
+                  <li>Sleepingbag(thickness depending on climate)</li>
+                  <li>Camp Chairs</li>
+                  <li>Pillows</li>
+                </ul>
+                
+                <h2>Cooking and Storage</h2>
 
         <div id="save-plan-div" class="hidden">
           <button type="submit" id="save-plan-button">Save Plan</button>
@@ -91,12 +103,12 @@
     
     <script id="park-template" type="text/x-handlebars-template">
       <article class="park">
-         <img src="{{image_url}}" alt="park img"/>
-          <div class="park-info">
-              <a href="/campgrounds/{{park_code}}">{{name}}</a>
-              <p>{{description}}</p>
+          <img src="{{image_url}}" alt="park img"/>
+          <div class="div">
+            <p class="park-header"><span><a href="/campgrounds/{{park_code}}">{{name}}</a></span></p>
+            <p class="description"><span>{{description}}</span></p>
           </div>
-        </article>
+      </article>
     </script>
 
     <script id="camp-template" type="text/x-handlebars-template">

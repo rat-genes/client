@@ -1,0 +1,83 @@
+*{
+    border: 1px solid red;
+}
+
+/* Styling for the header all pages */
+header {
+    background-color: rgba(255, 255, 255, 0.603);
+    width: 100%;
+    font-family: 'Amatic SC', cursive;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 12em;
+}
+#blurb {
+    background-color: rgba(255, 255, 255, 0.603);
+    font-family: 'Amatic SC', cursive;
+    padding: 5%;
+}
+
+
+#logo {
+    display: inline;
+    margin: 5% 15%;
+}
+#logo img, h1{
+    display: inline;
+    font-size: 5em;
+}
+#activity{
+    list-style-type: none;
+    text-align: center;
+}
+
+
+#activity h2, a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+header h1 a:visited {
+    color: black;
+}
+
+/* Stlying for the home page API templates */
+.park {
+    margin-top: 5%;
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    padding: 5%;
+    position: relative;
+    max-height: 360px;
+    overflow: hidden;
+}
+.div {
+    position: absolute;
+    top: 40%;
+    width: 80%;
+}
+.park img{
+    position: relative;
+    max-width: 100%;
+}
+.park a {
+    color: white;
+    font-size: 1.5em;
+}
+.park p span {
+    background: rgba(0, 0, 0, 0.678);
+
+}
+
+
+/* Styling for the footer on all pages */
+footer {
+    background-color: rgba(255, 255, 255, 0.603);
+    height: 20%;
+    margin: 5%;
+    width: 100vw;
+    align-self: center;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+}

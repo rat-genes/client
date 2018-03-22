@@ -45,5 +45,21 @@
     page({ hashbang:true });
 
     page();
+
+    // $(document).ready(function(){
+    //     $('section[data-type="background"]').each(function(){
+    //         const $bgobj = $(this); // assigning the object
+        
+    //         $(window).scroll(function() {
+    //             const yPos = -($(window).scrollTop() / $bgobj.data('speed'));
+                
+    //             // Put together our final background position
+    //             const coords = '50% ' + yPos + 'px';
+    
+    //             // Move the background
+    //             $bgobj.css({ backgroundPosition: coords });
+    //         });
+    //     });
+    // });
     
 })(window.module);

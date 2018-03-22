@@ -1,5 +1,5 @@
 #loading-screen {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.603);
     height: 100%;
     position: absolute;
     text-align: center;
@@ -11,9 +11,6 @@
     font-size: 3em;
 }
 
-#park-view img {
-    max-width: 15%;
-}
 
 #user-plans h2 {
     background-color: green;
@@ -106,7 +103,6 @@
 #to-do-ul li .remove-checklist-item {
     background-color: white;
     border-left: 1px solid black;
-    display: inline-block;
     float: right;
     margin: 0;
     padding: 0;
@@ -131,7 +127,6 @@
 #to-do-ul li .remove-todo {
     background-color: white;
     border-left: 1px solid black;
-    display: inline-block;
     float: right;
     margin: 0;
     padding: 0;
