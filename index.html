@@ -9,13 +9,20 @@
     <link rel="stylesheet" href="public/styles/layout.css">
     <link rel="stylesheet" href="public/styles/modules.css">
     <link rel="stylesheet" href="public/styles/state.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
   </head>
 
   <body>
     <header class="dimmed">
-      <h2><a href="/profile">My Trips</a></h2>
-      <h2><a id="handle-login">Login</a></h2>
-      <h1><a href="/parks">Camping Fellows</a></h1>
+      <div id="logo">
+        <img src="public/styles/trillium.png" alt="Camp Fellows">
+        <h1>Camp Fellows</h1>
+      </div>
+      <div id="activity">
+        <h2><a href="/parks">Parks</a></h2>
+        <h2><a href="/profile">My Trips</a></h2>
+        <h2><a id="handle-login">Login</a></h2>
+      </div>  
     </header>
 
     <main>
@@ -40,8 +47,7 @@
       </section>
 
       <section id="park-view" class="view dimmed">
-        <h1>parks</h1>
-        <div id="park-display"></div>
+          <div id="park-display"></div> 
       </section>
 
       <section id="profile-view" class="view dimmed">
@@ -63,25 +69,25 @@
       </section>
     </main>
 
-
+    <footer>
+      <p>Written and coded by <a href="https://github.com/rat-genes">Rat Genes</a></p>
+    </footer>
+    
+    <!-- TEMPLATES -->
     <script id="option-template" type="text/x-handlebars-template">
       <option class="campground" value="{{id}}">{{name}}</option>
     </script>
     
-    <!-- TEMPLATES -->
     <script id="park-template" type="text/x-handlebars-template">
       <article class="park">
-         <img src="{{image_url}}" alt="park img"/>
-          <div class="park-info">
-              <a href="/campgrounds/{{park_code}}">{{name}}</a>
-              <p>{{description}}</p>
-          </div>
-        </article>
+          <img src="{{image_url}}" alt="park img"/>
+          <p><span><a href="/campgrounds/{{park_code}}">{{name}}</a><br />{{description}}</span></p>
+      </article>
     </script>
 
     <script id="camp-template" type="text/x-handlebars-template">
       <article class="camps" data-id={{id}}>
-          <!--<img src="{{image_url}}" alt="park img"/>-->
+          <img src="{{image_url}}" alt="park img"/>
           <div class="camp-info">
               <h3>{{name}}</h3>
               <p>{{description}}</p>
