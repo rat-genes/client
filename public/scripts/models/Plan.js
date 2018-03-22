@@ -101,18 +101,24 @@
                 };
 
                 return todoData;
-                // console.log('todoDATA!!', todoData);
             })
             .then((result) => {
                 $.post(`${API_URL}/todos/save`, result);
             });
     };
 
-    Plan.loadPlan = () => {
+    Plan.loadPlan = (id) => {
         $('#checklist').empty().html(Plan.checklist);
         $('#to-do-ul').empty().html(Plan.toDoList);
         $('#save-plan-div').hide();
-    }
+
+        return $.getJSON(`${API_URL}/profile/loadplan/${id}`)
+            .then((result) => {
+                console.log(result);
+                $('#checklist').html(result[0].checklist);
+                $('#to-do-ul').html(result[0].todos);
+            })
+    };
 
     Plan.defaultChecklist =
     `
