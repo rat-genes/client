@@ -66,22 +66,25 @@
             campground_id: module.Campground.campgroundIndex
         };
 
+        const todoData = {};
 
         return $.post(`${API_URL}/trip/save`, parkData)
             .then ($.get(`${API_URL}/trip/load`, parkData))
             .then((result) => {
                 Plan.tripId = result.id;
 
-                Plan.todoData = {
+                const todoData = {
                     checklistHtml: Plan.checklistHtml,
                     todoHtml: Plan.todoHtml,
                     trip_id: Plan.tripId
                 };
-                console.log('todoDATA!!', Plan.todoData);
+
+                return todoData;
+                // console.log('todoDATA!!', todoData);
             })
-            .then(
-                $.post(`${API_URL}/todos/save`, Plan.todoData)
-            );
+            .then((result) => {
+                $.post(`${API_URL}/todos/save`, result);
+            });
     };
 
     module.Plan = Plan;
