@@ -1,8 +1,6 @@
 'use strict';
 
 (function (module) {
-    
-    const Plan = {};
   
     function Plan(data) {
         Object.keys(data).forEach(key => this[key] = data[key]);
@@ -43,7 +41,7 @@
 
     Plan.markToDoComplete = () => {
         
-    }
+    };
     
-        module.Plan = Plan;
+    module.Plan = Plan;
 })(window.module);

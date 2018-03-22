@@ -10,9 +10,11 @@
     const parkView = {};
 
     parkView.initParkView = () => {
-        if(!User.current || !localStorage.getItem('id')) {
+        if(User.current || localStorage.getItem('id')) {
+            $('#mytrips').show();
+        } else {
             $('#mytrips').hide();
-        } else $('#mytrips').show();
+        }
         $('#park-view').show();
         $('#park-display').empty();
         Park.all.forEach(data => {

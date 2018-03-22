@@ -7,6 +7,7 @@
     const campgroundView = module.campgroundView;
     const Plan = module.Plan;
     const profileView = module.profileView;
+    const loginView = module.loginView;
     
     const resetView = () => {
         $('.view').hide();
@@ -28,11 +29,6 @@
         .then(parkView.initParkView)
         .then(clearLoading)
     );
-
-    // const data = {
-    //     park_code: 'crla',
-    //     campground_id: '62'
-    // };
     
     page('/parks', () => parkView.initParkView());
     page('/profile', () => Plan.myTrips().then(profileView.initProfileView));
