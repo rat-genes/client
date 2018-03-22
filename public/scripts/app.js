@@ -33,7 +33,7 @@
     );
 
     page('/parks', () => parkView.initParkView());
-    page('/profile', () => Plan.saveTrip().then(profileView.initProfileView));
+    page('/profile', () => Plan.loadTrip().then(profileView.initProfileView));
     page('/profile/plan/', ctx => campgroundView.initCampgroundView);
     //TODO: If coming from MY TRIPS, clear HTML and repopulate from DB
     page('/profile/plan/:id', ctx => campgroundView.initCampgroundView);

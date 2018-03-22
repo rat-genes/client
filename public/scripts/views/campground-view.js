@@ -23,7 +23,7 @@
     //TODO: Write method to populate page with loaded DB data
     campgroundView.initSavedPlan = (ctx) => {
         $(`#campground-filters`).prop('selectedIndex', Campground.campgroundIndex).change();
-    }
+    };
 
     campgroundView.initCampgroundView = (ctx) => {
         $('#campground-view').show();

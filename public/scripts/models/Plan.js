@@ -44,7 +44,7 @@
         }
     };
 
-    Plan.saveTrip = () => {
+    Plan.loadTrip = () => {
         const user_id = {id: localStorage.id};
         return $.getJSON(`${API_URL}/trip/load`, user_id)
             .then(data => {
@@ -56,24 +56,31 @@
     Plan.saveTodos = (data) => {
         event.preventDefault();
 
-        const checklistHtml = $('#checklist').html();
-        const todoHtml = $('#to-do-ul').html();
-        const parkCode = module.Campground.parkCode;
-
-        const todoData = {
-            checklistHtml: checklistHtml,
-            todoHtml: todoHtml,
-        };
+        Plan.checklistHtml = $('#checklist').html();
+        Plan.todoHtml = $('#to-do-ul').html();
+        Plan.parkCode = module.Campground.parkCode;
 
         const parkData = {
-            park_code: parkCode,
+            park_code: Plan.parkCode,
             user_id: localStorage.id,
             campground_id: module.Campground.campgroundIndex
         };
 
-        return $.post(`${API_URL}/todos/save`, todoData)
+
+        return $.post(`${API_URL}/trip/save`, parkData)
+            .then ($.get(`${API_URL}/trip/load`, parkData))
+            .then((result) => {
+                Plan.tripId = result.id;
+
+                Plan.todoData = {
+                    checklistHtml: Plan.checklistHtml,
+                    todoHtml: Plan.todoHtml,
+                    trip_id: Plan.tripId
+                };
+                console.log('todoDATA!!', Plan.todoData);
+            })
             .then(
-                $.post(`${API_URL}/trip/save`, parkData)
+                $.post(`${API_URL}/todos/save`, Plan.todoData)
             );
     };
 
