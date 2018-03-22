@@ -18,8 +18,14 @@
         campgroundView.handleFilter();
     };
 
+    //TODO: Write method to clear out all data (called if loading a trip)
+
+    //TODO: Write method to populate page with loaded DB data
+    campgroundView.initSavedPlan = (ctx) => {
+        $(`#campground-filters`).prop('selectedIndex', Campground.campgroundIndex).change();
+    }
+
     campgroundView.initCampgroundView = (ctx) => {
-        console.log(ctx);
         $('#campground-view').show();
         $('#campgrounds').empty();
 
@@ -28,12 +34,6 @@
         });
 
         $('.camps').hide();
-
-        // if there is DB data, clear everything and use it
-
-        // else, leave the template data there
-
-        // then create all listeners
 
         $('#add-item-button').off('click').on('click', () => {
             event.preventDefault();
@@ -50,20 +50,18 @@
             Plan.alterChecklistItem();
         });
 
-        Campground.campground = 'No Campground Selected';
-
         $('#campground-filters').off('click').on('change', (e) => {
-            Campground.campground = e.target.selectedIndex;
+            Campground.campgroundIndex = e.target.selectedIndex;
         });
 
-        $('#save-plan-button').off().on('click', Plan.savePlan);
+        $('#save-plan-button').off().on('click', Plan.saveTodos);
     };
 
     campgroundView.handleFilter = () => {
         $('#campground-filters').on('change', function() {
             if($(this).val()) {
                 $('.camps').hide();
-                $(`.camps[data-id="${$(this).val()}"]`).fadeIn();
+                $(`.camps[data-campground-id="${$(this).val()}"]`).fadeIn();
             }
         });
     };

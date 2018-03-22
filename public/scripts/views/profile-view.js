@@ -15,5 +15,7 @@
         });
     };
 
+    //TODO: Create a path that goes over to planning a trip WITH DATA from a trip here
+
     module.profileView = profileView;
 })(window.module);

@@ -61,24 +61,42 @@
         }
     };
 
-    Plan.savePlan = (data) => {
+    Plan.saveTrip = () => {
+        const user_id = {id: localStorage.id};
+        return $.getJSON(`${API_URL}/trip/load`, user_id)
+            .then(data => {
+                Plan.all = data.map(each => new Plan(each));
+            })
+            .then(console.log('PLAN', Plan.all));
+    };
+
+    Plan.saveTodos = (data) => {
         event.preventDefault();
+        if (($('#trip-saved'))){$('#trip-saved').remove();}
+
+        const saved = $('<p id="trip-saved">Trip saved</p>');
+        $('#save-plan-div').append(saved);
 
         const checklistHtml = $('#checklist').html();
         const todoHtml = $('#to-do-ul').html();
-        const campground = module.Campground.campground;
+        const parkCode = module.Campground.parkCode;
 
-        const storedData = {
+        const todoData = {
             checklistHtml: checklistHtml,
             todoHtml: todoHtml,
-            campground: campground
         }
 
-        return $.post(`${API_URL}/todos/save`, storedData)
+        const parkData = {
+            park_code: parkCode,
+            user_id: localStorage.id,
+            campground_id: module.Campground.campgroundIndex
+        }
 
+        return $.post(`${API_URL}/todos/save`, todoData)
+            .then(
+                $.post(`${API_URL}/trip/save`, parkData)
+            )
     };
-
-    module.Plan = Plan;
     
     module.Plan = Plan;
 })(window.module);
