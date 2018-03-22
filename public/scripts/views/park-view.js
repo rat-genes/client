@@ -10,18 +10,24 @@
     const parkView = {};
 
     parkView.initParkView = () => {
+        
+        $('#park-view').show();
+        $('#park-display').empty();
+        
+        Park.all.forEach(data => {
+            $('#park-display').append(template(data));
+        });
+
         if(User.current || localStorage.getItem('id')) {
             $('#mytrips').show();
         } else {
             $('#mytrips').hide();
+            $('.park-info a').removeAttr('href');
         }
-        $('#park-view').show();
-        $('#park-display').empty();
-        Park.all.forEach(data => {
-            $('#park-display').append(template(data));
-        });
+        
         loginView.initSignup();
     };
 
     module.parkView = parkView;
+    
 })(window.module);
