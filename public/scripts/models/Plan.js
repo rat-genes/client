@@ -40,11 +40,23 @@
         }
     };
 
-    Plan.savePlan = () => {
-        // click save button
-        // grab state of campground
-        // grab state of checkboxes
-        // grab state of to-do list
+    Plan.savePlan = (data) => {
+        event.preventDefault();
+
+        // grab states
+        const checklistHtml = $('#checklist').html();
+        const todoHtml = $('#to-do-ul').html();
+        const campground = 'Kilchis';
+
+        const storedData = {
+            checklistHtml: checklistHtml,
+            todoHtml: todoHtml,
+            campground: campground
+        }
+
+        // store states of the two in the DB
+        return $.post(`${API_URL}/todos/save`, storedData)
+
     };
 
     module.Plan = Plan;

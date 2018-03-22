@@ -18,12 +18,22 @@
         campgroundView.handleFilter();
     };
 
-    campgroundView.initCampgroundView = () => {
+    campgroundView.initCampgroundView = (ctx) => {
+        console.log(ctx);
         $('#campground-view').show();
         $('#campgrounds').empty();
+
         Campground.all.forEach(data => {
             $('#campgrounds').append(template(data));
         });
+
+        $('.camps').hide();
+
+        // if there is DB data, clear everything and use it
+
+        // else, leave the template data there
+
+        // then create all listeners
 
         $('#add-item-button').off('click').on('click', () => {
             event.preventDefault();
@@ -34,13 +44,13 @@
             Plan.alterToDo();
         });
 
-        $('.remove-todo').on('click', Plan.removeToDo);
+        $('.remove-todo').off('click').on('click', Plan.removeToDo);
 
         $('#checklist').off('click').on('click', () => {
             Plan.alterChecklistItem();
         });
 
-        $('.camps').hide();
+        $('#save-plan-button').off().on('click', Plan.savePlan);
     };
 
     campgroundView.handleFilter = () => {
