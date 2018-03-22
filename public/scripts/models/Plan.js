@@ -67,7 +67,6 @@
             .then(data => {
                 Plan.all = data.map(each => new Plan(each));
             })
-            .then(console.log('PLAN', Plan.all));
     };
 
     Plan.saveTodos = () => {
@@ -111,11 +110,10 @@
         $('#save-plan-div').hide();
 
         return $.getJSON(`${API_URL}/profile/loadplan/${id}`)
-            .then((result) => {
-                console.log(result);
-                $('#checklist').html(result[0].checklist);
-                $('#to-do-ul').html(result[0].todos);
-            });
+        .then((result) => {
+            $('#checklist').html(result[0].checklist);
+            $('#to-do-ul').html(result[0].todos);
+        })        
     };
 
     Plan.defaultChecklist =

@@ -14,7 +14,11 @@
         if(Plan.all.length === 0) $('#notrips').show();
         Plan.all.forEach(data => {
             $('#user-plans').append(tripTemplate(data));
-        });
+        })
+        $('a').on('click', () => {
+            Plan.index = $(event.target).attr('data-campground-id');
+        })
+        ;
     };
 
     module.profileView = profileView;
