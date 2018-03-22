@@ -35,7 +35,6 @@
         });
 
         $('.remove-todo').on('click', Plan.removeToDo);
-
         $('.camps').hide();
     };
 

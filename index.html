@@ -58,7 +58,6 @@
 
       <section id="campground-view" class="view dimmed">
         <h1>my trip</h1>
-
         <form id="list">
           <fieldset>
             <legend>Trip Checklist:</legend>
@@ -147,7 +146,6 @@
             </div>
           </fieldset>  
         </form>
-
         <div>
           <p>Campgrounds</p>
           <select id="campground-filters">
@@ -157,6 +155,9 @@
       </section>
     </main>
 
+    <script id="trip-template" type="text/x-handlebars-template">
+      <p><a href="">{{id}}</a></p>
+    </script>
 
     <script id="option-template" type="text/x-handlebars-template">
       <option class="campground" value="{{id}}">{{name}}</option>
@@ -174,10 +175,10 @@
     </script>
 
     <script id="camp-template" type="text/x-handlebars-template">
-      <article class="camps" data-id={{id}}>
+      <article class="camps" data-id="{{id}}" data-park-code="{{parkCode}}">
           <!--<img src="{{image_url}}" alt="park img"/>-->
           <div class="camp-info">
-              <h3>{{name}}</h3>
+              <h3><a href="/trip/campground/{{id}}/{{parkCode}}">{{name}}</a></h3>
               <p>{{description}}</p>
 
               <h3>Directions:</h3>
@@ -210,6 +211,7 @@
                   <li>{{amenities.showers}}</li>
                 </ul>
           </div>
+
         </article>
     </script>
 
@@ -311,6 +313,7 @@
     <script src="public/scripts/models/Park.js"></script>
     <script src="public/scripts/models/Plan.js"></script>
     <script src="public/scripts/models/User.js"></script>
+    <script src="public/scripts/models/Plan.js"></script>
     <script src="public/scripts/views/campground-view.js"></script>
     <script src="public/scripts/views/login-view.js"></script>
     <script src="public/scripts/views/park-view.js"></script>

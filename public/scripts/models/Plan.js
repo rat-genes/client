@@ -1,8 +1,23 @@
 'use strict';
 
-(function(module) {
+(function (module) {
     
     const Plan = {};
+  
+    function Plan(data) {
+        Object.keys(data).forEach(key => this[key] = data[key]);
+    }
+
+    Plan.all = [];
+
+    Plan.myTrips = () => {
+        const user_id = {id: localStorage.id};
+        return $.getJSON(`${API_URL}/trip/load`, user_id)
+            .then(data => {
+                Plan.all = data.map(each => new Plan(each));
+            })
+            .then(console.log('PLAN', Plan.all));
+    };
 
     Plan.addToDo = () => {
         const li = $('<li></li>').text(($('#newItem').val()));
@@ -29,6 +44,6 @@
     Plan.markToDoComplete = () => {
         
     }
-        module.Plan = Plan;
     
+        module.Plan = Plan;
 })(window.module);

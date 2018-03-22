@@ -5,6 +5,8 @@
     const Campground = module.Campground;
     const parkView = module.parkView;
     const campgroundView = module.campgroundView;
+    const Plan = module.Plan;
+    const profileView = module.profileView;
     
     const resetView = () => {
         $('.view').hide();
@@ -26,13 +28,16 @@
         .then(parkView.initParkView)
         .then(clearLoading)
     );
+
+    // const data = {
+    //     park_code: 'crla',
+    //     campground_id: '62'
+    // };
     
     page('/parks', () => parkView.initParkView());
-    page('/profile', () => module.profileView.initProfileView());
-    page('/profile/plan/', ctx => campgroundView.initCampgroundView);
-    page('/auth/signup', loginView.initSignup);
-    page('/auth/login', loginView.initSignin);
+    page('/profile', () => Plan.myTrips().then(profileView.initProfileView));
     page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
+    page('/trip/campground/:id/:parkCode', ctx => Campground.saveTrip({park_code: ctx.params.parkCode, campground_id: ctx.params.id}));
 
     page('*', () => page.redirect('/'));
     
