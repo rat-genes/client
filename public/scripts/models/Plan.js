@@ -17,6 +17,13 @@
             .then(console.log('PLAN', Plan.all));
     };
 
+    Plan.deleteTrip = (id) => {
+        return $.ajax({
+            url: `${API_URL}/profile/deletetrip/${id}`,
+            method: 'DELETE'
+        });
+    };
+
     Plan.addToDo = () => {
         const li = $('<li></li>').text(($('#newItem').val()));
         $('#to-do-ul').append(li);
