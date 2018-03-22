@@ -63,18 +63,18 @@
         const todoData = {
             checklistHtml: checklistHtml,
             todoHtml: todoHtml,
-        }
+        };
 
         const parkData = {
             park_code: parkCode,
             user_id: localStorage.id,
             campground_id: module.Campground.campgroundIndex
-        }
+        };
 
         return $.post(`${API_URL}/todos/save`, todoData)
             .then(
                 $.post(`${API_URL}/trip/save`, parkData)
-            )
+            );
     };
 
     module.Plan = Plan;
