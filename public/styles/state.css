@@ -2,6 +2,10 @@
     opacity: .25;
 }
 
+.hidden {
+    display: none;
+}
+
 #to-do-ul li {
     background-color: orange;
     border: 1px solid black;

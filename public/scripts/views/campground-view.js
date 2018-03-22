@@ -52,6 +52,7 @@
 
         $('#campground-filters').off('click').on('change', (e) => {
             Campground.campgroundIndex = e.target.selectedIndex;
+            $('#save-plan-div').show();
         });
 
         $('#save-plan-button').off().on('click', Plan.saveTodos);
