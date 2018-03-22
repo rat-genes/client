@@ -76,6 +76,55 @@
     border-color: orange;
 }
 
+#checklist ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#checklist ul:after {
+    clear: both;
+    display: table;
+    content: "";
+}
+
+#checklist ul li {
+    background-color: orange;
+    border: 1px solid black;
+    float: left;
+    font-size: 1.5em;
+    margin: 2px .5em;
+    padding-left: .5em;
+    width: fit-content;
+}
+
+#checklist ul li.checked {
+    background-color: green;
+}
+
+#checklist li .remove-checklist-item {
+    background-color: white;
+    border-left: 1px solid black;
+    display: inline-block;
+    float: right;
+    margin: 0;
+    margin-left: 1em;
+    padding: 0;
+    text-align: center;
+    width: 1em;
+}
+
+#to-do-ul li .remove-checklist-item {
+    background-color: white;
+    border-left: 1px solid black;
+    display: inline-block;
+    float: right;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 1em;
+}
+
 #to-do-list div {
     width: 100%;
 }

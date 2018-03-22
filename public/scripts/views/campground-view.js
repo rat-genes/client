@@ -36,6 +36,12 @@
 
         $('.remove-todo').on('click', Plan.removeToDo);
 
+        $('#checklist').off('click').on('click', () => {
+            Plan.alterChecklistItem();
+        });
+
+        $('.remove-checklist-item').on('click', Plan.removeToDo);
+
         $('.camps').hide();
     };
 

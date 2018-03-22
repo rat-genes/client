@@ -8,7 +8,9 @@
     
     const resetView = () => {
         $('.view').hide();
-        loginView.handleLoginView();
+        module.loginView.handleLoginView();
+        // THE FOLLOWING LINE MUST BE REMOVED AFTER CODING TODO STUFF
+        clearLoading();
     };
 
     const clearLoading = () => {
@@ -26,12 +28,10 @@
         .then(parkView.initParkView)
         .then(clearLoading)
     );
-    
+
     page('/parks', () => parkView.initParkView());
     page('/profile', () => module.profileView.initProfileView());
     page('/profile/plan/', ctx => campgroundView.initCampgroundView);
-    page('/auth/signup', loginView.initSignup);
-    page('/auth/login', loginView.initSignin);
     page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
 
     page('*', () => page.redirect('/'));
