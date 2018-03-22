@@ -1,6 +1,6 @@
-/* *{
+*{
     border: 1px solid red;
-} */
+}
 
 /* Styling for the header all pages */
 header {
@@ -8,17 +8,18 @@ header {
     width: 100%;
     font-family: 'Amatic SC', cursive;
     margin-top: 5%;
+    margin-bottom: 5%;
+    height: 12em;
 }
 #blurb {
     background-color: rgba(255, 255, 255, 0.603);
-    width: 100%;
     font-family: 'Amatic SC', cursive;
     padding: 5%;
 }
 
 
 #logo {
-    float: left;
+    display: inline;
     margin: 5% 15%;
 }
 #logo img, h1{
@@ -26,8 +27,8 @@ header {
     font-size: 5em;
 }
 #activity{
-    float: right;
-    margin-right: 5%;
+    list-style-type: none;
+    text-align: center;
 }
 
 
@@ -42,8 +43,6 @@ header h1 a:visited {
 }
 
 /* Stlying for the home page API templates */
-
-
 .park {
     margin-top: 5%;
     font-family: 'Amatic SC', cursive;
@@ -53,15 +52,14 @@ header h1 a:visited {
     max-height: 360px;
     overflow: hidden;
 }
-
+.div {
+    position: absolute;
+    top: 40%;
+    width: 80%;
+}
 .park img{
     position: relative;
     max-width: 100%;
-}
-.park p {
-    position: absolute;
-    top: 55%;
-    width: 80%;
 }
 .park a {
     color: white;
@@ -72,12 +70,13 @@ header h1 a:visited {
 
 }
 
+
 /* Styling for the footer on all pages */
 footer {
     background-color: rgba(255, 255, 255, 0.603);
     height: 20%;
     margin: 5%;
-    width: 100%;
+    width: 100vw;
     align-self: center;
     font-family: 'Amatic SC', cursive;
     text-align: center;
