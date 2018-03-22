@@ -1,7 +1,7 @@
 'use strict';
 
 (function(module) {
-    const Plan = module.Profile;
+    const Plan = module.Plan;
 
     const profileView = {};
 
