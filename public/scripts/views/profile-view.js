@@ -1,11 +1,19 @@
 'use strict';
 
 (function(module) {
-    const Profile = module.Profile;
+    const Plan = module.Plan;
 
     const profileView = {};
 
-    profileView.initProfileView = () => {$('#profile-view').show();};
+    const tripTemplate = Handlebars.compile($('#trip-template').html());
+
+    profileView.initProfileView = () => {
+        $('#profile-view').show();
+        $('#user-plans').empty();
+        Plan.all.forEach(data => {
+            $('#user-plans').append(tripTemplate(data));
+        });
+    };
 
     module.profileView = profileView;
 })(window.module);
