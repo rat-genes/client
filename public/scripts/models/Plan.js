@@ -44,14 +44,14 @@
         }
     };
 
-    // Plan.saveTrip = () => {
-    //     const user_id = {id: localStorage.id};
-    //     return $.getJSON(`${API_URL}/trip/load`, user_id)
-    //         .then(data => {
-    //             Plan.all = data.map(each => new Plan(each));
-    //         })
-    //         .then(console.log('PLAN', Plan.all));
-    // };
+    Plan.saveTrip = () => {
+        const user_id = {id: localStorage.id};
+        return $.getJSON(`${API_URL}/trip/load`, user_id)
+            .then(data => {
+                Plan.all = data.map(each => new Plan(each));
+            })
+            .then(console.log('PLAN', Plan.all));
+    };
 
     Plan.saveTodos = (data) => {
         event.preventDefault();
