@@ -1,7 +1,9 @@
 'use strict';
 
 (function (module) {
-
+    
+    const Plan = {};
+  
     function Plan(data) {
         Object.keys(data).forEach(key => this[key] = data[key]);
     }
@@ -17,14 +19,31 @@
             .then(console.log('PLAN', Plan.all));
     };
 
+    Plan.addToDo = () => {
+        const li = $('<li></li>').text(($('#newItem').val()));
+        $('#to-do-ul').append(li);
+        const remove = $('<p></p>').text('X').addClass('remove-todo');
+        $(li).append(remove);
+        $(remove).on('click', Plan.removeToDo);
+    };
 
-    // Park.populateParks = function() {
-    //     return $.getJSON(`${API_URL}/parks`)
-    //         .then(data => {
-    //             Park.all = data.parks.map(each => new Park(each));
-    //         });
-    // };
+    Plan.alterToDo = () => {
+        if (($(event.target).hasClass('done'))) {
+            $(event.target).removeClass('done');
+        } else {
+            $(event.target).addClass('done');
+        }
+    };
 
-    module.Plan = Plan;
+    Plan.removeToDo = () => {
+        if (($(event.target).hasClass('remove-todo'))) {
+            $(event.target).parent().remove();
+        }
+    };
 
+    Plan.markToDoComplete = () => {
+        
+    }
+    
+        module.Plan = Plan;
 })(window.module);

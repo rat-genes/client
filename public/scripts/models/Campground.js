@@ -28,8 +28,7 @@
         data.user_id = localStorage.id;
         return $.post(`${API_URL}/trip/save`, data)
             .then(page.redirect('/'));
-
     };
-
+  
     module.Campground = Campground;
 })(window.module);

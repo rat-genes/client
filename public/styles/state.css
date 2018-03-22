@@ -1,3 +1,16 @@
 .dimmed {
     opacity: .25;
 }
+
+#to-do-ul li {
+    background-color: orange;
+    border: 1px solid black;
+    font-size: 1.3em;
+    list-style: none;
+    margin-bottom: 3px;
+}
+
+#to-do-ul li.done {
+    background-color: green;
+    text-decoration: line-through;
+}

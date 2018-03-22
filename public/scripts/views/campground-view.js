@@ -2,6 +2,7 @@
 
 (function(module) {
     const Campground = module.Campground;
+    const Plan = module.Plan;
 
     const template = Handlebars.compile($('#camp-template').html());
     const optionTemplate = Handlebars.compile($('#option-template').html());
@@ -23,6 +24,17 @@
         Campground.all.forEach(data => {
             $('#campgrounds').append(template(data));
         });
+
+        $('#add-item-button').off('click').on('click', () => {
+            event.preventDefault();
+            Plan.addToDo();
+        });
+
+        $('#to-do-list-div').off('click').on('click', () => {
+            Plan.alterToDo();
+        });
+
+        $('.remove-todo').on('click', Plan.removeToDo);
         $('.camps').hide();
     };
 

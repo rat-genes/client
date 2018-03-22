@@ -10,7 +10,7 @@
     
     const resetView = () => {
         $('.view').hide();
-        module.loginView.handleLoginView();
+        loginView.handleLoginView();
     };
 
     const clearLoading = () => {
@@ -38,14 +38,11 @@
     page('/profile', () => Plan.myTrips().then(profileView.initProfileView));
     page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
     page('/trip/campground/:id/:parkCode', ctx => Campground.saveTrip({park_code: ctx.params.parkCode, campground_id: ctx.params.id}));
-    // page('/trip/plans', () => Plan.myTrip());
 
     page('*', () => page.redirect('/'));
     
     page({ hashbang:true });
 
     page();
-
-
     
 })(window.module);
