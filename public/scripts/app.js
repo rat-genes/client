@@ -37,6 +37,7 @@
     page('/profile/plan/', ctx => campgroundView.initCampgroundView);
     //TODO: If coming from MY TRIPS, clear HTML and repopulate from DB
     page('/profile/plan/:id', ctx => campgroundView.initCampgroundView);
+    page('/profile/deletetrip/:id', ctx  => Plan.deleteTrip(ctx.params.id).then(Plan.myTrips).then(profileView.initProfileView));
     page('/campgrounds/:parkCode', ctx => Campground.populateCampFilter(ctx.params.parkCode).then(campgroundView.initFilterView).then(campgroundView.initCampgroundView));
     page('/trip/campground/:id/:parkCode', ctx => Campground.saveTrip({park_code: ctx.params.parkCode, campground_id: ctx.params.id}));
 

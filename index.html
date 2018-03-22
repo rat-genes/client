@@ -15,7 +15,7 @@
     <header class="dimmed">
       <h2 id="mytrips"><a href="/profile">My Trips</a></h2>
       <h2><a id="handle-login">Login</a></h2>
-      <h1><a href="/parks">Camping Fellows</a></h1>
+      <h1><a href="/">Camping Fellows</a></h1>
     </header>
 
     <main>
@@ -133,7 +133,7 @@
 
     <!-- TEMPLATES -->
     <script id="trip-template" type="text/x-handlebars-template">
-      <p><a href="" data-campground-id="{{campground_id}}" data-park-code="{{park_code}}" data-user-id="{{user_id}}" data-trip-id="{{id}}">{{id}}</a></p>
+      <p><a href="" data-campground-id="{{campground_id}}" data-park-code="{{park_code}}" data-user-id="{{user_id}}" data-trip-id="{{id}}">{{id}}</a>-<a href="/profile/deletetrip/{{id}}">DELETE</a></p>
     </script>
 
     <script id="option-template" type="text/x-handlebars-template">
