@@ -146,25 +146,25 @@
     <h2>Toiletries</h2>
 
     <ul>
-      Toothbrush/Toothpaste/Floss</li>
-      Shampoo/Conditioner</li>
-      Towel</li>
-      Soap</li>
-      Sunscreen</li>
+      <li>Toothbrush/Toothpaste/Floss</li>
+      <li>Shampoo/Conditioner</li>
+      <li>Towel</li>
+      <li>Soap</li>
+      <li>Sunscreen</li>
     </ul>
 
     <h2>Clothed(Depending on Climate)</h2>
     <ul>
-      Underwear</li>
-      Socks</li>
-      Wool Socks</li>
-      T-Shirts</li>
-      Thermal or Long Sleeve Shirts</li>
-      Sweaters/Sweatshirts</li>
-      Hiking Pants/Shorts</li>
-      Hiking Boots/Trail Shoes</li>
-      Hat/Bandana</li>
-      Camp Shoes/Flip-Flop</li>
+        <li>Underwear</li>
+        <li>Socks</li>
+        <li>Wool Socks</li>
+        <li>T-Shirts</li>
+        <li>Thermal or Long Sleeve Shirts</li>
+        <li>Sweaters/Sweatshirts</li>
+        <li>Hiking Pants/Shorts</li>
+        <li>Hiking Boots/Trail Shoes</li>
+        <li>Hat/Bandana</li>
+        <li>Camp Shoes/Flip-Flop</li>
     </ul>
  
     `;
