@@ -43,10 +43,9 @@
     Plan.savePlan = (data) => {
         event.preventDefault();
 
-        // grab states
         const checklistHtml = $('#checklist').html();
         const todoHtml = $('#to-do-ul').html();
-        const campground = 'Kilchis';
+        const campground = module.Campground.campground;
 
         const storedData = {
             checklistHtml: checklistHtml,
@@ -54,7 +53,6 @@
             campground: campground
         }
 
-        // store states of the two in the DB
         return $.post(`${API_URL}/todos/save`, storedData)
 
     };

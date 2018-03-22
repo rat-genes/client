@@ -50,6 +50,12 @@
             Plan.alterChecklistItem();
         });
 
+        Campground.campground = 'No Campground Selected';
+
+        $('#campground-filters').off('click').on('change', (e) => {
+            Campground.campground = e.target.selectedIndex;
+        });
+
         $('#save-plan-button').off().on('click', Plan.savePlan);
     };
 
@@ -63,4 +69,5 @@
     };
     
     module.campgroundView = campgroundView;
+    module.Campground = Campground;
 })(window.module);
