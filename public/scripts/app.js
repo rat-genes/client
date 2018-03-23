@@ -23,8 +23,6 @@
     page('*', (ctx, next) => {
         resetView();
         next();
-        // NOTE: THE FOLLOWING LINE NEEDS TO BE REMOVED WHEN CODING IS COMPLETE
-        clearLoading();
     });
 
     page('/', () => Park.populateParks()

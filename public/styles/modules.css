@@ -11,7 +11,6 @@
     font-size: 3em;
 }
 
-
 #user-plans h2 {
     background-color: green;
     border: 1px solid black;
@@ -61,22 +60,28 @@
 }
 
 #save-plan-div {
-    position: fixed;
-    right: 0;
-    top: 5.1em;
+    position: sticky;
+    top: 1px;
+    margin-top: 1.5em;
+    float: right;
 }
 
 #save-plan-button {
-    float: right;
+    background-color: black;
+    border-color: white;
+    border-radius: 5px 5px;
+    color: white;
     font-size: 1.2em;
     font-weight: bold;
-    background-color: yellow;
-    border-color: orange;
+}
+
+#checklist h2 {
+    margin-left: 1em;
 }
 
 #checklist ul {
     list-style: none;
-    margin: 0;
+    margin: 0 .5em;
     padding: 0;
 }
 
@@ -87,8 +92,10 @@
 }
 
 #checklist ul li {
-    background-color: orange;
+    background-color: black;
     border: 1px solid black;
+    border-radius: 5px 5px;
+    color: white;
     float: left;
     font-size: 1.5em;
     margin: 2px .10em;
@@ -97,7 +104,13 @@
 }
 
 #checklist ul li.checked {
-    background-color: green;
+    background-color:white;
+    color: black;
+    text-decoration: line-through;
+}
+
+#campground-section {
+    margin-left: 1em;
 }
 
 #to-do-ul li .remove-checklist-item {
@@ -125,11 +138,45 @@
 }
 
 #to-do-ul li .remove-todo {
-    background-color: white;
+    background-color: black;
     border-left: 1px solid black;
+    color: white;
     float: right;
     margin: 0;
     padding: 0;
     text-align: center;
     width: 1em;
+}
+
+.park-header {
+    margin: 0 .25em;
+}
+
+.camp-info p, .camp-info h3, .camp-info h1 {
+    padding: 0;
+    margin-left: 1em;
+}
+
+.camp-info ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.camp-info li {
+    padding: 5px;
+}
+
+.trip-text {
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 10px 10px;
+    font-size: 3em;
+    margin-left: 1em;
+    padding: 0 1em;
+}
+
+.delete-trip {
+    margin-left: 10px;
 }

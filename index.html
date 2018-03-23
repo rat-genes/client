@@ -14,18 +14,24 @@
 
   <body>
     <header class="dimmed">
-      <div id="logo">
-        <img src="public/styles/trillium.png" alt="Camp Fellows">
-        <h1>Camp Fellows</h1>
-      </div>
+      <a href="/parks">
+        <div id="logo">
+          <img src="public/styles/trillium.png" alt="Camp Fellows">
+          <h1>Camp Fellows</h1>
+        </div>
+      </a>
+
       <ul id="activity">
-        <li><a href="/parks">Parks</a></li>
-        <li><a href="/profile">My Trips</a></li>
+        <li><a href="/profile" id="mytrips">My Trips</a></li>
         <li><a id="handle-login">Login</a></li>
       </ul> 
     </header>
 
     <main id="content">
+      <div id="save-plan-div" class="hidden view">
+        <button type="submit" id="save-plan-button">Save Plan</button>
+      </div>
+   
       <article id="loading-screen">
         <h1>Loading...</h1>
       </article>
@@ -68,7 +74,7 @@
       </article>
 
       <article id="campground-view" class="view dimmed content">
-        <div>
+        <div id="campground-section">
           <h2>Campgrounds</h2>
           <select id="campground-filters"></select>
         </div>
@@ -86,16 +92,12 @@
           <div id="to-do-list-div">
           <ul id="to-do-ul"></ul>
         </div>
-
-        <div id="save-plan-div" class="hidden">
-         <button type="submit" id="save-plan-button">Save Plan</button>
-        </div>
       </article>
   </main>
 
     <!-- TEMPLATES -->
     <script id="trip-template" type="text/x-handlebars-template">
-      <p><a href="/profile/plan/{{id}}/{{park_code}}" data-campground-id="{{campground_id}}" data-park-code="{{park_code}}" data-user-id="{{user_id}}" data-trip-id="{{id}}">{{id}}</a>-<a href="/profile/deletetrip/{{id}}">DELETE</a></p>
+      <p><a href="/profile/plan/{{id}}/{{park_code}}" data-campground-id="{{campground_id}}" data-park-code="{{park_code}}" data-user-id="{{user_id}}" data-trip-id="{{id}}" class="trip-text">Trip {{id}}</a><a class="delete-trip" href="/profile/deletetrip/{{id}}">DELETE</a></p>
     </script>
 
     <script id="option-template" type="text/x-handlebars-template">
@@ -123,35 +125,47 @@
               <h3>Directions:</h3>
               <p>{{directions}}</p>
 
-              <h3>Polices:</h3>
-              <p>{{regulations}}</p>
+              <div class="ul-div-container">
+                <div class"ul-div">
+                  <h3>Polices:</h3>
+                  <p>{{regulations}}</p>
+                </div>
 
-              <h3>Campsites:</h3>
+                <div class="ul-div">
+                  <h3>Campsites:</h3>
                   <ul>
-                    <li>{{campsites.total_sites}}</li>
-                    <li>{{campsites.other_sites}}</li>
-                    <li>{{campsites.groups_sites}}</li>
-                    <li>{{campsites.tent_only}}</li>
-                    <li>{{campsites.electricity}}</li>
-                    <li>{{campsites.rv}}</li>
-                    <li>{{campsites.boat_launch}}</li>
+                    <li>Total Sites: {{campsites.total_sites}}</li>
+                    <li>Other Sites: {{campsites.other_sites}}</li>
+                    <li>Group Sites: {{campsites.groups_sites}}</li>
+                    <li>Tent Only: {{campsites.tent_only}}</li>
+                    <li>Electricity: {{campsites.electricity}}</li>
+                    <li>RV: {{campsites.rv}}</li>
+                    <li>Boat Launch: {{campsites.boat_launch}}</li>
                   </ul>
+                </div>
+              </div>
 
-              <h3>Accesibility:</h3>
-                <ul>
-                  <li>{{accesibility.wheelchair_access}}</li>
-                  <li>{{accesibility.fire_policy}}</li>
-                  <li>{{accessibility.ada_bathrooms}}</li>
-                </ul>
-
-                <h3>Amenities:</h3>
-                <ul>
-                  <li>{{amenities.toilets}}</li>
-                  <li>{{amenities.showers}}</li>
-                </ul>
-          </div>
-
-        </article>
+              <div class="ul-div-container">
+                <div class="ul-div">
+                  <h3>Accesibility:</h3>
+                  <ul>
+                    <li>Wheelchair Access: {{accesibility.wheelchair_access}}</li>
+                    <li>Fire Policy: {{accesibility.fire_policy}}</li>
+                    <li>ADA Bathrooms: {{accessibility.ada_bathrooms}}</li>
+                  </ul>
+                </div>
+                
+                <div class="ul-div">
+                  <h3>Amenities:</h3>
+                  <ul>
+                    <li>Toilets: {{amenities.toilets}}</li>
+                    <li>Showers: {{amenities.showers}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+              
+            </article>
     </script>
 
     <!-- third party -->
