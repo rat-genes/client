@@ -1,12 +1,20 @@
 /* Styling for the header all pages */
 header {
-    background-color: rgba(255, 255, 255, 0.603);
+
+    background-repeat: repeat-x;
     width: 100%;
     font-family: 'Amatic SC', cursive;
     margin-top: 5%;
     margin-bottom: 5%;
-    height: 8em;
+    display: flex;
+    flex-direction: column;
+    
+}    
+#logo {
+        align-self: center;
 }
+
+/*     height: 8em; */
 
 #blurb {
     background-color: rgba(255, 255, 255, 0.603);
@@ -16,8 +24,9 @@ header {
 }
 
 #logo img, h1{
-    display: inline;
+    display: inline-block;
     font-size: 5em;
+    margin: auto;
 }
 
 #activity{
@@ -41,8 +50,11 @@ header {
     font-weight: bold;
 }
 
-header h1 a:visited {
-    color: black;
+/* Mission statement for the app */
+#blurb {
+    background-color: rgba(255, 255, 255, 0.603);
+    font-family: 'Amatic SC', cursive;
+    padding: 5%;
 }
 
 /* Stlying for the home page API templates */
@@ -80,12 +92,13 @@ header h1 a:visited {
 
 /* Styling for the footer on all pages */
 footer {
-    background-color: rgba(255, 255, 255, 0.603);
-    height: 20%;
+
+    color: white;
+    font-family: 'Amatic SC', cursive;
     margin: 5%;
+    height: 20%;
     width: 100vw;
     align-self: center;
-    font-family: 'Amatic SC', cursive;
     text-align: center;
 }
 
