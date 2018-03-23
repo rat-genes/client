@@ -14,7 +14,6 @@
             .then(data => {
                 Plan.all = data.map(each => new Plan(each));
             })
-            .then(console.log('PLAN', Plan.all));
     };
 
     Plan.deleteTrip = (id) => {
@@ -22,7 +21,6 @@
             url: `${API_URL}/profile/deletetrip/${id}`,
             method: 'DELETE'
         })
-            .then(response => console.log(response));
     };
 
     Plan.addToDo = () => {
@@ -67,7 +65,6 @@
             .then(data => {
                 Plan.all = data.map(each => new Plan(each));
             })
-            .then(console.log('PLAN', Plan.all));
     };
 
     Plan.saveTodos = () => {
@@ -112,7 +109,6 @@
 
         return $.getJSON(`${API_URL}/profile/loadplan/${id}`)
             .then((result) => {
-                console.log(result);
                 $('#checklist').html(result[0].checklist);
                 $('#to-do-ul').html(result[0].todos);
             });
