@@ -14,6 +14,8 @@ body, html {
 }
 main {
     margin-bottom: 25%;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 320px) {
@@ -30,13 +32,12 @@ main {
     header {
         margin: 0;
     }
-    #logo {
-        display: inline-block;
-    }
-    #activity {
-        display: inline-block;
-    }
 }
+
+#activity {
+    display: inline-block;
+}
+
 @media only screen and (min-width: 321px) and (max-width: 600px) {
     
     .description {
@@ -55,6 +56,7 @@ main {
         font-size: 2em;
     }
 }
+
 @media only screen and (min-width: 600px) and (max-width: 800px) {
     
     .div {
@@ -66,6 +68,7 @@ main {
         font-size: 2em;
     }
 }
+
 @media only screen and (min-width: 800px) and (max-width: 1500px) {
 
     .park img{
@@ -75,5 +78,3 @@ main {
         font-size: 2em;
     }
 }
-
-

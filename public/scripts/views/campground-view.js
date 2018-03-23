@@ -18,8 +18,11 @@
         campgroundView.handleFilter();
     };
 
+    campgroundView.initSavedPlan = (ctx) => {
+        $(`#campground-filters`).prop('selectedIndex', Plan.index).change();
+    };
+
     campgroundView.initCampgroundView = (ctx) => {
-        console.log(ctx);
         $('#campground-view').show();
         $('#campgrounds').empty();
 
@@ -28,12 +31,6 @@
         });
 
         $('.camps').hide();
-
-        // if there is DB data, clear everything and use it
-
-        // else, leave the template data there
-
-        // then create all listeners
 
         $('#add-item-button').off('click').on('click', () => {
             event.preventDefault();
@@ -50,20 +47,19 @@
             Plan.alterChecklistItem();
         });
 
-        Campground.campground = 'No Campground Selected';
-
         $('#campground-filters').off('click').on('change', (e) => {
-            Campground.campground = e.target.selectedIndex;
+            Campground.campgroundIndex = e.target.selectedIndex;
+            $('#save-plan-div').show();
         });
 
-        $('#save-plan-button').off().on('click', Plan.savePlan);
+        $('#save-plan-button').off().on('click', Plan.saveTodos);
     };
 
     campgroundView.handleFilter = () => {
         $('#campground-filters').on('change', function() {
             if($(this).val()) {
                 $('.camps').hide();
-                $(`.camps[data-id="${$(this).val()}"]`).fadeIn();
+                $(`.camps[data-campground-id="${$(this).val()}"]`).fadeIn();
             }
         });
     };

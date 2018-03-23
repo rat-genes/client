@@ -17,6 +17,14 @@
             .then(console.log('PLAN', Plan.all));
     };
 
+    Plan.deleteTrip = (id) => {
+        return $.ajax({
+            url: `${API_URL}/profile/deletetrip/${id}`,
+            method: 'DELETE'
+        })
+            .then(response => console.log(response));
+    };
+
     Plan.addToDo = () => {
         const li = $('<li></li>').text(($('#newItem').val()));
         $('#to-do-ul').append(li);
@@ -53,24 +61,119 @@
         }
     };
 
-    Plan.savePlan = (data) => {
-        event.preventDefault();
-
-        const checklistHtml = $('#checklist').html();
-        const todoHtml = $('#to-do-ul').html();
-        const campground = module.Campground.campground;
-
-        const storedData = {
-            checklistHtml: checklistHtml,
-            todoHtml: todoHtml,
-            campground: campground
-        }
-
-        return $.post(`${API_URL}/todos/save`, storedData)
-
+    Plan.loadTrip = () => {
+        const user_id = {id: localStorage.id};
+        return $.getJSON(`${API_URL}/trip/load`, user_id)
+            .then(data => {
+                Plan.all = data.map(each => new Plan(each));
+            })
+            .then(console.log('PLAN', Plan.all));
     };
 
+    Plan.saveTodos = () => {
+        event.preventDefault();
+        if (($('#trip-saved'))){$('#trip-saved').remove();}
+
+        const saved = $('<p id="trip-saved">Trip saved</p>');
+        $('#save-plan-div').append(saved);
+
+        Plan.checklistHtml = $('#checklist').html();
+        Plan.todoHtml = $('#to-do-ul').html();
+        Plan.parkCode = module.Campground.parkCode;
+
+        const parkData = {
+            park_code: Plan.parkCode,
+            user_id: localStorage.id,
+            campground_id: module.Campground.campgroundIndex
+        };
+
+        return $.post(`${API_URL}/trip/save`, parkData)
+            .then ($.get(`${API_URL}/trip/load`, parkData))
+            .then((result) => {
+                Plan.tripId = result.id;
+
+                const todoData = {
+                    checklistHtml: Plan.checklistHtml,
+                    todoHtml: Plan.todoHtml,
+                    trip_id: Plan.tripId
+                };
+
+                return todoData;
+            })
+            .then((result) => {
+                $.post(`${API_URL}/todos/save`, result);
+            });
+    };
+
+    Plan.loadPlan = (id) => {
+        $('#checklist').empty().html(Plan.checklist);
+        $('#to-do-ul').empty().html(Plan.toDoList);
+        $('#save-plan-div').hide();
+
+        return $.getJSON(`${API_URL}/profile/loadplan/${id}`)
+            .then((result) => {
+                console.log(result);
+                $('#checklist').html(result[0].checklist);
+                $('#to-do-ul').html(result[0].todos);
+            });
+    };
+
+    Plan.defaultChecklist =
+    `
+    
+    <h2>Trip Checklist</h2>
+
+    <h2>Shelter and Bedding</h2>
+    <ul>
+      <li>Tent</li>
+      <li>Tarp</li>
+      <li>Sleepingbag(thickness depending on climate)</li>
+      <li>Camp Chairs</li>
+      <li>Pillows</li>
+    </ul>
+
+    <h2>Cooking and Storage</h2>
+
+    <ul>
+      <li>Cooler</li>
+      <li>Cooking/Eating Utensils</li>
+      <li>Trashbags</li>
+      <li>Firewood(if allowed)</li>
+      <li>Dishwash Bin</li>
+      <li>Dish Soap</li>
+    </ul>
+
+    <h2>Toiletries</h2>
+
+    <ul>
+      <li>Toothbrush/Toothpaste/Floss</li>
+      <li>Shampoo/Conditioner</li>
+      <li>Towel</li>
+      <li>Soap</li>
+      <li>Sunscreen</li>
+    </ul>
+
+    <h2>Clothed(Depending on Climate)</h2>
+    <ul>
+        <li>Underwear</li>
+        <li>Socks</li>
+        <li>Wool Socks</li>
+        <li>T-Shirts</li>
+        <li>Thermal or Long Sleeve Shirts</li>
+        <li>Sweaters/Sweatshirts</li>
+        <li>Hiking Pants/Shorts</li>
+        <li>Hiking Boots/Trail Shoes</li>
+        <li>Hat/Bandana</li>
+        <li>Camp Shoes/Flip-Flop</li>
+    </ul>
+ 
+    `;
+    Plan.newPlan = () => {
+        $('#checklist').empty().html(Plan.defaultChecklist);
+        $('#to-do-ul').empty();
+        $('#save-plan-div').hide();
+    };
+        
     module.Plan = Plan;
     
-    module.Plan = Plan;
 })(window.module);

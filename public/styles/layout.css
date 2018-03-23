@@ -1,7 +1,3 @@
-/* *{
-    border: 1px solid red;
-} */
-
 /* Styling for the header all pages */
 header {
 
@@ -15,23 +11,43 @@ header {
     
 }    
 #logo {
-        margin: 5% 15%;
         align-self: center;
 }
+
+/*     height: 8em; */
+
+#blurb {
+    background-color: rgba(255, 255, 255, 0.603);
+    font-family: 'Amatic SC', cursive;
+    padding: 5%;
+    font-weight: bold;
+}
+
 #logo img, h1{
     display: inline-block;
     font-size: 5em;
     margin: auto;
 }
+
 #activity{
+    width: 100%;
+    margin: 0;
     list-style-type: none;
     text-align: center;
-    height: 100%;
+    padding: 0;
 }
+
+#activity li {
+    display: inline-block;
+    flex-direction: row;
+    margin: 0 1em;
+}
+
 #activity h2, a {
     color: black;
     text-decoration: none;
     font-size: 1.5em;
+    font-weight: bold;
 }
 
 /* Mission statement for the app */
@@ -51,24 +67,28 @@ header {
     max-height: 360px;
     overflow: hidden;
 }
+
 .div {
     position: absolute;
     top: 40%;
     width: 80%;
 }
+
 .park img{
     position: relative;
     max-width: 100%;
+    overflow: hide;
 }
+
 .park a {
     color: white;
     font-size: 1.5em;
 }
+
 .park p span {
     background: rgba(0, 0, 0, 0.678);
 
 }
-
 
 /* Styling for the footer on all pages */
 footer {
@@ -80,4 +100,10 @@ footer {
     width: 100vw;
     align-self: center;
     text-align: center;
+}
+
+.ul-div-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
 }
