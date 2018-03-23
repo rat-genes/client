@@ -15,7 +15,7 @@
     };
 
     const clearLoading = () => {
-        $('#loading-screen').hide();
+        $('#loading-screen').remove();
         $('header').removeClass('dimmed');
         $('.view').removeClass('dimmed');
     };
@@ -29,6 +29,11 @@
         .then(parkView.initParkView)
         .then(clearLoading)
     );
+
+    page('*', (ctx, next) => {
+        clearLoading();
+        next();
+    });
 
     page('/parks', () => parkView.initParkView());
     page('/profile', () => Plan.loadTrip().then(profileView.initProfileView));
