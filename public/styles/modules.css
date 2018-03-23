@@ -78,8 +78,12 @@ article.park div.div {
     margin-left: 1em;
 }
 
-.park-heade {
+.park-header {
     margin: 0;
+}
+
+.park-header p:first-child {
+    margin: .4em 0;
 }
 
 .description {

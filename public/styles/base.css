@@ -98,6 +98,10 @@ main {
         font-size: 2em;
     }
 
+    .description {
+        font-size: 1em;
+    }
+
     #login-view {
         top: -10em;
     }
