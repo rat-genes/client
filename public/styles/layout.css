@@ -122,9 +122,14 @@ header {
     border: 1px solid black;
     border-radius: 7px;
     margin: .5em;
+    padding-left: .5em;
     background-color: black;
     color: white;
     width: 30%;
+}
+
+.ul-div li, .ul-div p {
+    font-family: 'Martel Sans', sans-serif;
 }
 
 .camp-info, #checklist {
