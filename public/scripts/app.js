@@ -15,7 +15,7 @@
     };
 
     const clearLoading = () => {
-        $('#loading-screen').hide();
+        $('#loading-screen').remove();
         $('header').removeClass('dimmed');
         $('.view').removeClass('dimmed');
     };
@@ -30,6 +30,11 @@
         .then(clearLoading)
     );
 
+    page('*', (ctx, next) => {
+        clearLoading();
+        next();
+    });
+
     page('/parks', () => parkView.initParkView());
     page('/profile', () => Plan.loadTrip().then(profileView.initProfileView));
     page('/profile/plan/', () => (campgroundView.initCampgroundView));
@@ -43,21 +48,5 @@
     page({ hashbang:true });
 
     page();
-
-    // $(document).ready(function(){
-    //     $('section[data-type="background"]').each(function(){
-    //         const $bgobj = $(this); // assigning the object
-        
-    //         $(window).scroll(function() {
-    //             const yPos = -($(window).scrollTop() / $bgobj.data('speed'));
-                
-    //             // Put together our final background position
-    //             const coords = '50% ' + yPos + 'px';
-    
-    //             // Move the background
-    //             $bgobj.css({ backgroundPosition: coords });
-    //         });
-    //     });
-    // });
     
 })(window.module);

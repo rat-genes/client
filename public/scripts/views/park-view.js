@@ -22,7 +22,7 @@
             $('#mytrips').show();
         } else {
             $('#mytrips').hide();
-            $('.park-info a').removeAttr('href');
+            $('.park a').removeAttr('href');
         }
         
         loginView.initSignup();

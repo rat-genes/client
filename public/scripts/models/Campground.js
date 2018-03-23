@@ -22,14 +22,12 @@
         return $.getJSON(`${API_URL}/campgrounds/filter/${id}`)
             .then(data => {
                 Campground.all = data.campgrounds.map(each => new Campground(each));
-                console.log(id);
             });
     };
 
     Campground.saveTrip = (data) => {
         data.user_id = localStorage.id;
         return $.post(`${API_URL}/trip/save`, data);
-        // .then(page.redirect('/'));
     };
   
     module.Campground = Campground;
