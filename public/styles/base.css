@@ -67,6 +67,7 @@ main {
     .park-header {
         font-size: 2em;
     }
+
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1500px) {
@@ -77,4 +78,5 @@ main {
     .park-header {
         font-size: 2em;
     }
+
 }

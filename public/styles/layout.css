@@ -9,24 +9,15 @@ header {
     display: flex;
     flex-direction: column;
     
-}    
-#logo {
-        align-self: center;
 }
 
-/*     height: 8em; */
-
-#blurb {
-    background-color: rgba(255, 255, 255, 0.603);
-    font-family: 'Amatic SC', cursive;
-    padding: 5%;
-    font-weight: bold;
+#logo {
+    align-self: center;
 }
 
 #logo img, h1{
     display: inline-block;
     font-size: 5em;
-    margin: auto;
 }
 
 #activity{
@@ -53,8 +44,10 @@ header {
 /* Mission statement for the app */
 #blurb {
     background-color: rgba(255, 255, 255, 0.603);
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Martel Sans', sans-serif;
     padding: 5%;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* Stlying for the home page API templates */
