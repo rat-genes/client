@@ -78,6 +78,15 @@ article.park div.div {
     margin-left: 1em;
 }
 
+.park-heade {
+    margin: 0;
+}
+
+.description {
+    font-size: 1.2em;
+    margin: 0;
+}
+
 #add-item-div {
     display: inline-block;
     width: fit-content;
