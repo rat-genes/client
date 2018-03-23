@@ -35,6 +35,8 @@
     background-color: white;
     border: 1px solid black;
     margin: auto;
+    position: relative;
+    top: -15em;
     width: fit-content;
     z-index: 1;
 }
@@ -70,6 +72,10 @@
     border-style: none;
     color: white;
     text-decoration: none;
+}
+
+.description span {
+    margin-left: .25em;
 }
 
 #add-item-div {
