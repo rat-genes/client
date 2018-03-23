@@ -112,11 +112,13 @@
     
     <script id="park-template" type="text/x-handlebars-template">
       <article class="park">
+        <a href="/campgrounds/{park_code}}">
           <img src="{{image_url}}" alt="park img"/>
-          <div class="div">
-            <p class="park-header"><span>{{name}}</span></p>
-            <p class="description"><span>{{description}}</span></p>
+            <div class="div">
+              <p class="park-header"><span>{{name}}</span></p>
+              <p class="description"><span>{{description}}</span></p>
           </div>
+        </a>  
       </article>
     </script>
 
@@ -124,7 +126,7 @@
 
       <article class="camps" data-campground-id="{{id}}" data-park-code="{{parkCode}}">
           <div class="camp-info">
-              <h3><a href="/trip/campground/{{id}}/{{parkCode}}">{{name}}</a></h3>
+              <h3>{{name}}</h3>
               <p>{{description}}</p>
               
               <h3>Directions:</h3>
