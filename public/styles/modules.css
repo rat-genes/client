@@ -59,6 +59,10 @@
     width: fit-content;
 }
 
+#add-item-div h2 {
+    margin-left: 24px;
+}
+
 #save-plan-div {
     position: sticky;
     top: 1px;
@@ -113,6 +117,11 @@
     margin-left: 1em;
 }
 
+#campground-filters {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 #to-do-ul li .remove-checklist-item {
     background-color: white;
     border-left: 1px solid black;
@@ -148,8 +157,24 @@
     width: 1em;
 }
 
+.ul-div {
+    border: 1px solid black;
+    border-radius: 7px;
+    margin: .5em;
+    background-color: black;
+    color: white;
+    width: 30%;
+}
+
 .park-header {
     margin: 0 .25em;
+}
+
+.camp-info, #checklist {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: .5em .5em;
+    padding: 0;
 }
 
 .camp-info p, .camp-info h3, .camp-info h1 {
@@ -167,6 +192,12 @@
     padding: 5px;
 }
 
+#newItem {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 1em;
+}
+
 .trip-text {
     color: white;
     background-color: black;
@@ -179,4 +210,7 @@
 
 .delete-trip {
     margin-left: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0 .5em;
 }
