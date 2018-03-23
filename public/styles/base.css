@@ -79,5 +79,7 @@ main {
     .park-header {
         font-size: 2em;
     }
-
+    #blurb {
+        font-size: 1.5em;
+    }
 }
