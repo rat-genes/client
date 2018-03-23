@@ -13,6 +13,10 @@ body, html {
     background-position: center bottom;
 }
 
+h1, h2, h3 {
+    font-family: 'Amatic SC', cursive;
+}
+
 a:hover, button:hover {
     cursor: pointer;
 }
