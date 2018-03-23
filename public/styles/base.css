@@ -30,6 +30,9 @@ main {
     header {
         margin: 0;
     }
+    .trip-text {
+        font-size: 1.5em;
+    }
 }
 
 #activity {

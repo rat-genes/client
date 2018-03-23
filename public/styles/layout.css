@@ -12,7 +12,7 @@ header {
 }
 
 #logo {
-    align-self: center;
+    text-align: center;
 }
 
 #logo img, h1{
@@ -86,6 +86,67 @@ header {
     margin: 0 .25em;
 }
 
+/* Styling for the trip planning/checklist page*/
+#checklist h2 {
+    margin-left: 1em;
+}
+
+#checklist ul {
+    list-style: none;
+    margin: 0 .5em;
+    padding: 0;
+}
+
+#checklist ul:after {
+    clear: both;
+    display: table;
+    content: "";
+}
+
+#checklist ul li {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px 5px;
+    color: white;
+    float: left;
+    font-size: 1.5em;
+    margin: 2px .10em;
+    padding: 0 .20em;
+    width: fit-content;
+}
+
+.ul-div-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.ul-div {
+    border: 1px solid black;
+    border-radius: 7px;
+    margin: .5em;
+    background-color: black;
+    color: white;
+    width: 30%;
+}
+
+.camp-info, #checklist {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: .5em .5em;
+    padding: 2%;
+}
+
+.camp-info ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0%;
+}
+
+.camp-info li {
+    padding: 5px;
+    font-family: 'Amatic SC', cursive;
+}
 
 /* Styling for the footer on all pages */
 footer {
@@ -97,10 +158,4 @@ footer {
     width: 100vw;
     align-self: center;
     text-align: center;
-}
-
-.ul-div-container {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
 }

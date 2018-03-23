@@ -6,6 +6,12 @@
     display: none;
 }
 
+#checklist ul li.checked {
+    background-color:white;
+    color: black;
+    text-decoration: line-through;
+}
+
 #to-do-ul li {
     background-color: black;
     border: 1px solid black;
@@ -26,15 +32,10 @@
 #trip-saved {
     animation-name: fadeout;
     animation-duration: 5s;
-    display: inline-block;
     float: left;
     font-weight: bold;
     opacity: 0;
     margin: .5em;
-}
-
-#save-plan-button:focus {
-    outline: gold auto 5px;
 }
 
 @keyframes fadeout {
