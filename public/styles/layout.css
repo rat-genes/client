@@ -45,8 +45,9 @@ header {
 #blurb {
     background-color: rgba(255, 255, 255, 0.603);
     font-family: 'Martel Sans', sans-serif;
-    padding: 5%;
     font-weight: bold;
+    margin: 0;
+    padding: 5%;
     text-align: center;
 }
 
