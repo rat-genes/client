@@ -14,8 +14,6 @@ body, html {
 }
 main {
     margin-bottom: 250px;
-    font-family: 'Amatic SC', cursive;
-    font-weight: bold;
 }
 
 @media only screen and (max-width: 320px) {

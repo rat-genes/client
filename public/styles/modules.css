@@ -166,26 +166,17 @@
     width: 30%;
 }
 
-.park-header {
-    margin: 0 .25em;
-}
-
 .camp-info, #checklist {
     border: 1px solid black;
     border-radius: 5px;
     margin: .5em .5em;
-    padding: 0;
-}
-
-.camp-info p, .camp-info h3, .camp-info h1 {
-    padding: 0;
-    margin-left: 1em;
+    padding: 2%;
 }
 
 .camp-info ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0%;
 }
 
 .camp-info li {

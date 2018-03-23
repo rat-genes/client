@@ -82,6 +82,10 @@ header {
     background: rgba(0, 0, 0, 0.678);
 
 }
+.park-header {
+    margin: 0 .25em;
+}
+
 
 /* Styling for the footer on all pages */
 footer {
