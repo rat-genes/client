@@ -12,6 +12,11 @@ body, html {
     background-repeat: repeat-x;
     background-position: center bottom;
 }
+
+a:hover, button:hover {
+    cursor: pointer;
+}
+
 main {
     margin-bottom: 250px;
 }
@@ -69,6 +74,9 @@ main {
         font-size: 2em;
     }
 
+    #login-view {
+        top: -10em;
+    }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1500px) {
@@ -85,4 +93,9 @@ main {
     #activity {
         font-size: 2em;
     }
+
+    #login-view {
+        top: -10em;
+    }
+
 }

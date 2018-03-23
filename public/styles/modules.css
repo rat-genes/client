@@ -67,6 +67,7 @@
 
 #close-login button {
     background-color: black;
+    border-style: none;
     color: white;
     text-decoration: none;
 }
