@@ -32,6 +32,7 @@
 
     page('*', (ctx, next) => {
         clearLoading();
+        window.scrollTo(0,0);
         next();
     });
 
