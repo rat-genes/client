@@ -8,6 +8,8 @@ body, html {
     display: flex;
     flex-direction: column;
 
+    font-family: 'Martel Sans', sans-serif;
+
     background-image: url("treeline-main4.png");
     background-repeat: repeat-x;
     background-position: center bottom;
