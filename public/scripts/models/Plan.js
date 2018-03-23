@@ -28,6 +28,7 @@
         $('#to-do-ul').append(li);
         const remove = $('<p></p>').text('X').addClass('remove-todo');
         $(li).append(remove);
+        $('#newItem').clear();
         $(remove).on('click', Plan.removeToDo);
     };
 

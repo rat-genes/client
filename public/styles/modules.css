@@ -74,8 +74,8 @@
     text-decoration: none;
 }
 
-.description span {
-    margin-left: .25em;
+article.park div.div {
+    margin-left: 1em;
 }
 
 #add-item-div {
