@@ -5,34 +5,46 @@ body, html {
     margin: 0;
     padding: 0;
 
-
     display: flex;
     flex-direction: column;
+
+    background-image: url("/public/styles/treeline-main4.png");
+    background-repeat: repeat-x;
+    background-position: center bottom;
+}
+main {
+    margin-bottom: 25%;
 }
 
 @media only screen and (max-width: 320px) {
+    
+    /*Park description on photos */
     .description {
         display: none;
     }
+
+    /*Header styling */
     header h1 {
         font-size: 2.5em;
     }
     header {
         margin: 0;
     }
-#logo {
-    display: inline-block;
-}
-#activity {
-    display: inline-block;
-}
+    #logo {
+        display: inline-block;
+    }
+    #activity {
+        display: inline-block;
+    }
 }
 @media only screen and (min-width: 321px) and (max-width: 600px) {
+    
     .description {
         display: none;
     }
     header h1 {
         font-size: 2.5em;
+
     }
     .div {
         position: absolute;
@@ -44,6 +56,7 @@ body, html {
     }
 }
 @media only screen and (min-width: 600px) and (max-width: 800px) {
+    
     .div {
         position: absolute;
         top: 35%;

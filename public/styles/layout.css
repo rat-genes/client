@@ -1,45 +1,44 @@
-*{
+/* *{
     border: 1px solid red;
-}
+} */
 
 /* Styling for the header all pages */
 header {
-    background-color: rgba(255, 255, 255, 0.603);
+
+    background-repeat: repeat-x;
     width: 100%;
     font-family: 'Amatic SC', cursive;
     margin-top: 5%;
     margin-bottom: 5%;
-    height: 12em;
-}
-#blurb {
-    background-color: rgba(255, 255, 255, 0.603);
-    font-family: 'Amatic SC', cursive;
-    padding: 5%;
-}
-
-
+    display: flex;
+    flex-direction: column;
+    
+}    
 #logo {
-    display: inline;
-    margin: 5% 15%;
+        margin: 5% 15%;
+        align-self: center;
 }
 #logo img, h1{
-    display: inline;
+    display: inline-block;
     font-size: 5em;
+    margin: auto;
 }
 #activity{
     list-style-type: none;
     text-align: center;
+    height: 100%;
 }
-
-
 #activity h2, a {
     color: black;
     text-decoration: none;
     font-size: 1.5em;
 }
 
-header h1 a:visited {
-    color: black;
+/* Mission statement for the app */
+#blurb {
+    background-color: rgba(255, 255, 255, 0.603);
+    font-family: 'Amatic SC', cursive;
+    padding: 5%;
 }
 
 /* Stlying for the home page API templates */
@@ -73,11 +72,12 @@ header h1 a:visited {
 
 /* Styling for the footer on all pages */
 footer {
-    background-color: rgba(255, 255, 255, 0.603);
-    height: 20%;
+
+    color: white;
+    font-family: 'Amatic SC', cursive;
     margin: 5%;
+    height: 20%;
     width: 100vw;
     align-self: center;
-    font-family: 'Amatic SC', cursive;
     text-align: center;
 }
