@@ -13,9 +13,7 @@ body, html {
     background-position: center bottom;
 }
 main {
-    margin-bottom: 25%;
-    font-family: 'Amatic SC', cursive;
-    font-weight: bold;
+    margin-bottom: 250px;
 }
 
 @media only screen and (max-width: 320px) {
@@ -31,6 +29,9 @@ main {
     }
     header {
         margin: 0;
+    }
+    .trip-text {
+        font-size: 1.5em;
     }
 }
 
@@ -67,6 +68,7 @@ main {
     .park-header {
         font-size: 2em;
     }
+
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1500px) {
@@ -77,4 +79,5 @@ main {
     .park-header {
         font-size: 2em;
     }
+
 }

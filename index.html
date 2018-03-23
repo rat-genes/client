@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel"stylesheet" href="public/styles/normalize.css">
     <link rel="stylesheet" href="public/styles/base.css">
     <link rel="stylesheet" href="public/styles/layout.css">
     <link rel="stylesheet" href="public/styles/modules.css">
     <link rel="stylesheet" href="public/styles/theme.css">
     <link rel="stylesheet" href="public/styles/state.css">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Martel+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="public/styles/login.css">
   </head>
 
   <body>
@@ -121,53 +123,48 @@
     <script id="camp-template" type="text/x-handlebars-template">
 
       <article class="camps" data-campground-id="{{id}}" data-park-code="{{parkCode}}">
-        <div class="camp-info">
-          <h3><a href="/trip/campground/{{id}}/{{parkCode}}">{{name}}</a></h3>
-          <p>{{description}}</p>
-
-          <h3>Directions:</h3>
-          <p>{{directions}}</p>
-
-          <div class="ul-div-container">
-            <div class"ul-div">
+       <!--<img src="{{image_url}}" alt="park img"/>-->
+          <div class="camp-info">
+              <h3><a href="/trip/campground/{{id}}/{{parkCode}}">{{name}}</a></h3>
+              <p>{{description}}</p>
+              
+              <h3>Directions:</h3>
+              <p>{{directions}}</p>
+              
               <h3>Polices:</h3>
-              <p>{{regulations}}</p>
-            </div>
+                <p>{{regulations}}</p>
 
-            <div class="ul-div">
-              <h3>Campsites:</h3>
-              <ul>
-                <li>Total Sites: {{campsites.total_sites}}</li>
-                <li>Other Sites: {{campsites.other_sites}}</li>
-                <li>Group Sites: {{campsites.groups_sites}}</li>
-                <li>Tent Only: {{campsites.tent_only}}</li>
-                <li>Electricity: {{campsites.electricity}}</li>
-                <li>RV: {{campsites.rv}}</li>
-                <li>Boat Launch: {{campsites.boat_launch}}</li>
-              </ul>
-            </div>
-          </div>
+              <div class="ul-div-container">
+                <div class="ul-div">
+                  <h3>Campsites:</h3>
+                  <ul>
+                    <li>Total Sites: {{campsites.total_sites}}</li>
+                    <li>Other Sites: {{campsites.other_sites}}</li>
+                    <li>Group Sites: {{campsites.groups_sites}}</li>
+                    <li>Tent Only: {{campsites.tent_only}}</li>
+                    <li>Electricity: {{campsites.electricity}}</li>
+                    <li>RV: {{campsites.rv}}</li>
+                    <li>Boat Launch: {{campsites.boat_launch}}</li>
+                  </ul>
+                </div>
 
-          <div class="ul-div-container">
-            <div class="ul-div">
-              <h3>Accesibility:</h3>
-              <ul>
-                <li>Wheelchair Access: {{accesibility.wheelchair_access}}</li>
-                <li>Fire Policy: {{accesibility.fire_policy}}</li>
-                <li>ADA Bathrooms: {{accessibility.ada_bathrooms}}</li>
-              </ul>
-            </div>
-            
-            <div class="ul-div">
-              <h3>Amenities:</h3>
-              <ul>
-                <li>Toilets: {{amenities.toilets}}</li>
-                <li>Showers: {{amenities.showers}}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-          
+                <div class="ul-div">
+                  <h3>Accesibility:</h3>
+                  <ul>
+                    <li>Wheelchair Access: {{accesibility.wheelchair_access}}</li>
+                    <li>Fire Policy: {{accesibility.fire_policy}}</li>
+                    <li>ADA Bathrooms: {{accessibility.ada_bathrooms}}</li>
+                  </ul>
+                </div>
+                
+                <div class="ul-div">
+                  <h3>Amenities:</h3>
+                  <ul>
+                    <li>Toilets: {{amenities.toilets}}</li>
+                    <li>Showers: {{amenities.showers}}</li>
+                  </ul>
+                </div>
+              </div>     
       </article>
     </script>
 
