@@ -1,5 +1,7 @@
 # Team Computer
 
+// initial commit
+
 ## Team Members
 Ryan Manro, Stephanie Smith, Tasha Zuniga, Victor Bofill
 
