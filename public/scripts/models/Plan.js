@@ -13,14 +13,14 @@
         return $.getJSON(`${API_URL}/trip/load`, user_id)
             .then(data => {
                 Plan.all = data.map(each => new Plan(each));
-            })
+            });
     };
 
     Plan.deleteTrip = (id) => {
         return $.ajax({
             url: `${API_URL}/profile/deletetrip/${id}`,
             method: 'DELETE'
-        })
+        });
     };
 
     Plan.addToDo = () => {
@@ -28,30 +28,24 @@
         $('#to-do-ul').append(li);
         const remove = $('<p></p>').text('X').addClass('remove-todo');
         $(li).append(remove);
-        $('#newItem').val("");
+        $('#newItem').val('');
         $(remove).on('click', Plan.removeToDo);
     };
 
     Plan.alterToDo = () => {
-        if (($(event.target).hasClass('done'))) {
-            $(event.target).removeClass('done');
-        } else {
-            $(event.target).addClass('done');
-        }
+        $(event.target).toggleClass('done');
     };
 
     Plan.removeToDo = () => {
         if (($(event.target).hasClass('remove-todo'))) {
+            // This code is hard to understand as you have to 
+            // figure out what .parent() is and why you would remove.
             $(event.target).parent().remove();
         }
     };
 
     Plan.alterChecklistItem = () => {
-        if (($(event.target).hasClass('checked'))) {
-            $(event.target).removeClass('checked');
-        } else {
-            $(event.target).addClass('checked');
-        }
+        $(event.target).toggleClass('checked');
     };
 
     Plan.removeChecklistItem = () => {
@@ -65,7 +59,7 @@
         return $.getJSON(`${API_URL}/trip/load`, user_id)
             .then(data => {
                 Plan.all = data.map(each => new Plan(each));
-            })
+            });
     };
 
     Plan.saveTodos = () => {
@@ -86,7 +80,12 @@
         };
 
         return $.post(`${API_URL}/trip/save`, parkData)
-            .then ($.get(`${API_URL}/trip/load`, parkData))
+            // 1. second param is "error handler". no data on a GET.
+            // 2. you want to return the promise, not pass it as
+            // the callback
+            // 3. Would be better to do this as one server call. Not three
+            // calls from client to server
+            .then (() => $.get(`${API_URL}/trip/load`))
             .then((result) => {
                 Plan.tripId = result.id;
 
