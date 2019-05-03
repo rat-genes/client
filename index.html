@@ -64,7 +64,7 @@
         
       <article id="park-view" class="view dimmed">
         <div id="blurb">
-          <p>Camp Fellow's mission is to bring you all the infomration needed to plan your next adventure to the Pacific Northwest. Log in to click on the park links below, and happy roughing it.</p>
+          <p>Camp Fellow's mission is to bring you all the information needed to plan your next adventure to the Pacific Northwest. Log in to click on the park links below, and happy roughing it.</p>
         </div>
 
         <div id="park-display"></div> 
@@ -103,7 +103,9 @@
     
     <!-- TEMPLATES -->
     <script id="trip-template" type="text/x-handlebars-template">
-      <p><a href="/profile/plan/{{id}}/{{park_code}}" data-campground-id="{{campground_id}}" data-park-code="{{park_code}}" data-user-id="{{user_id}}" data-trip-id="{{id}}" class="trip-text">Trip {{id}}</a><a class="delete-trip" href="/profile/deletetrip/{{id}}">DELETE</a></p>
+      <p>
+        <a href="/profile/plan/{{id}}/{{park_code}}" data-campground-id="{{campground_id}}" data-park-code="{{park_code}}" data-user-id="{{user_id}}" data-trip-id="{{id}}" class="trip-text">Trip {{id}}</a>
+        <a class="delete-trip" href="/profile/deletetrip/{{id}}">DELETE</a></p>
     </script>
 
     <script id="option-template" type="text/x-handlebars-template">
@@ -174,9 +176,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-
+      // No local dev url? Did you do dev against production 😱?
       const API_URL = 'https://rat-genes.herokuapp.com/api/v1';
-      
       window.module = {};
     </script>
 

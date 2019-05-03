@@ -26,12 +26,12 @@
     };
 
     loginView.handleLoginView = () => {
+        $('#handle-login').off().on('click', () => loginView.initLoginView());
+        
         if(User.current || localStorage.getItem('id')) {
-            $('#handle-login').off().on('click', () => loginView.initLoginView());
             $('#handle-login').text('Logout');
         } else {
             $('#handle-login').text('Login/Signup');
-            $('#handle-login').off().on('click', () => loginView.initLoginView());
         }
     };
 

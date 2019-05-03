@@ -1,5 +1,6 @@
 {
   "globals" : {
+    "API_URL": false,
     "rawData": true,
     "app": true,
     "Handlebars": true,

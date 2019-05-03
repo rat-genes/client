@@ -18,7 +18,10 @@
             });
     };
 
+    
     Campground.populateCampground = (id) => {
+        // AFAICT, this endpoint (url path) doesn't exist on server?
+        // If so, remove this code...
         return $.getJSON(`${API_URL}/campgrounds/filter/${id}`)
             .then(data => {
                 Campground.all = data.campgrounds.map(each => new Campground(each));

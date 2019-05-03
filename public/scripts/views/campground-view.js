@@ -18,11 +18,11 @@
         campgroundView.handleFilter();
     };
 
-    campgroundView.initSavedPlan = (ctx) => {
+    campgroundView.initSavedPlan = () => {
         $(`#campground-filters`).prop('selectedIndex', Plan.index).change();
     };
 
-    campgroundView.initCampgroundView = (ctx) => {
+    campgroundView.initCampgroundView = () => {
         $('#campground-view').show();
         $('#campgrounds').empty();
 
